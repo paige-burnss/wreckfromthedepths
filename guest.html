@@ -25,26 +25,31 @@
 
 <body>
 
-    <div class="float-right">
-        <button class="langbutton translate" id="lang">
-            <img class="world" src="photos/worldIcon.png"> EN
-        </button> <br><br>
-    </div><br>
-
-    <div class="text-center container1">
-        <img class="largelogo" src="photos/LogoWithName.jpg" alt="WreckFromDepths Logo"> <br><br>
-        <a href="guest.html">
-            <button class="loginbutton translate" id="guest">Guest</button>
-        </a> <br><br>
-        <a href="vip.html">
-            <button class="loginbutton translate" id="vip">VIP</button>
-        </a> <br><br>
-        <a href="manager.html">
-            <button class="loginbutton translate" id="man">Manager</button>
-        </a>
+    <div class="row">
+        <div class="col float-left">
+            <img class="smalllogo" src="photos/LogoWOName.jpg" alt="WreckFromDepths Logo"> <br><br>
+        </div>
+        <div class="col text-right">
+            <a href="index.html">
+                <button class="logoutbutton translate" id="lg"> Logout of Guest</button>
+            </a>
+            <button class="langbutton translate" id="lang">
+                <img class="world" src="photos/worldIcon.png"> EN
+            </button>
+        </div>
     </div>
 
+    <div class="row">
+        <div class="col-8">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control searchbar" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col order">
+            
+        </div>
+    </div>
+    
 </body>
 
 </html>
-

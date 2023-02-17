@@ -1,0 +1,88 @@
+body {
+    background-color: #FFFFF4;
+    padding: 1% 2% 1% 1%;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.container1{
+    padding:5%;
+}
+
+.loginbutton{
+    width: 30%;
+    background-color: #083D77;
+    color:white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 25px;
+}
+
+.loginbutton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.langbutton{
+    width: 80px;
+    border: 3px solid #083D77;
+    background-color: transparent;
+    color:black;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+}
+
+.langbutton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.largelogo{
+    width:18%;
+}
+
+.smalllogo{
+    width:10%;
+}
+
+.world{
+    width:30%;
+}
+
+.logoutbutton{
+    background-color: #083D77;
+    color:white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px 11px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.logoutbutton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.searchbar{
+    border: 3px solid #083D77;
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.filterbar{
+    background-color: #083D77;
+    color:white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.order{
+    border: 3px solid #083D77;
+    background-color: transparent;
+    border-radius: 8px;
+}
