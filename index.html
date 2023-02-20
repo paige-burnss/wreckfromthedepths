@@ -25,24 +25,87 @@
 
 <body>
 
+    <!-- Button that allows switch from English to Swedish and vice versa -->
     <div class="float-right">
         <button class="langbutton translate" id="lang">
             <img class="world" src="photos/worldIcon.png"> EN
         </button> <br><br>
     </div><br>
 
+    <!-- Center elements allowing user to choose if they sign in to program as Guest, VIP, or Manager -->
     <div class="text-center container1">
         <img class="largelogo" src="photos/LogoWithName.jpg" alt="WreckFromDepths Logo"> <br><br>
         <a href="guest.html">
             <button class="loginbutton translate" id="guest">Guest</button>
         </a> <br><br>
-        <a href="vip.html">
-            <button class="loginbutton translate" id="vip">VIP</button>
-        </a> <br><br>
-        <a href="manager.html">
-            <button class="loginbutton translate" id="man">Manager</button>
-        </a>
+        <button class="loginbutton translate" id="vip">VIP</button>
+        <br><br>
+        <button class="loginbutton translate" id="man">Manager</button>
     </div>
+
+    <div id="vipModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p class="logintitle" id="vipl">VIP Login</p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control searchbar" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control searchbar" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <a href="vip.html">
+            <button class="loginbutton2 translate" id="login">Login</button>
+          </a>
+        </div>
+    </div>
+
+    <div id="manModal" class="modal">
+        <div class="modal-content">
+        <span class="close1">&times;</span>
+        <p class="logintitle" id="manl">Manager Login</p>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control searchbar" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control searchbar" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <a href="manager.html">
+            <button class="loginbutton2 translate" id="login">Login</button>
+        </a>
+        </div>
+    </div>
+    
+    <script>
+        // Get the vip modal
+        var modal1 = document.getElementById("vipModal");
+        // Get the button that opens the vip modal
+        var btn1 = document.getElementById("vip");
+        // Get the <span> element that closes the vip modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks on the button, open the vip modal 
+        btn1.onclick = function() {
+        modal1.style.display = "block";
+        }
+        // When the user clicks on <span> (x), close the vip modal
+        span.onclick = function() {
+        modal1.style.display = "none";
+        }
+
+        // Get the manager modal
+        var modal = document.getElementById("manModal");
+        // Get the button that opens the manager modal
+        var btn = document.getElementById("man");
+        // Get the <span> element that closes the manager modal
+        var span = document.getElementsByClassName("close1")[0];
+        // When the user clicks on the button, open the manager modal 
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+        // When the user clicks on <span> (x), close the manager modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+    </script>
 
 </body>
 

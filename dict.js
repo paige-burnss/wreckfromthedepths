@@ -48,8 +48,15 @@ dict = {
         "guest": "Guest",
         "vip": "VIP",
         "man": "Manager",
+        "vipl": "VIP Login",
+        "manl": "Manager Login",
+        "login": "Login",
         "lg": "Logout of Guest",
-        "search": "Search"
+        "pop": "Popular",
+        "beer": "Beer",
+        "wine": "Wine",
+        "spir": "Spirits",
+        "snack": "Snacks",
     },
     "swe": {
         "lang": "SV",
