@@ -6,7 +6,9 @@ body {
 
 /* Login Page CSS */
 .container1{
-    padding:5%;
+    padding: 5%;
+    text-align: center;
+    max-width: 100%;
 }
 
 .loginbutton{
@@ -18,6 +20,7 @@ body {
     padding: 10px;
     text-align: center; /* Centers button in middle of screen */
     font-size: 25px;
+    font-family: 'Kumbh Sans', sans-serif; /* Consistent font */
 }
 
 .loginbutton:hover {
@@ -33,6 +36,7 @@ body {
     padding: 10px;
     text-align: center;
     font-size: 15px;
+    float: right;
 }
 
 .langbutton:hover {
@@ -40,15 +44,11 @@ body {
 }
 
 .largelogo{
-    width:18%; /* Dynamic width for changing screen size */
-}
-
-.smalllogo{
-    width:10%; /* Dynamic width for changing screen size */
+    width: 25%; /* Dynamic width for changing screen size */
 }
 
 .world{
-    width:30%; /* Dynamic width for changing screen size */
+    width:20%; /* Dynamic width for changing screen size */
 }
 
 .close { /* For 'x' to close modal boxes */
@@ -56,6 +56,7 @@ body {
     font-size: 28px;
     font-weight: bold;
     text-align: right; /* Right aligned in modal */
+    float: right;
 }
 
 .close1 { /* For 'x' to close modal boxes */
@@ -63,6 +64,7 @@ body {
     font-size: 28px;
     font-weight: bold;
     text-align: right; /* Right aligned in modal */
+    float: right;
 }
 
 .logintitle{
@@ -79,6 +81,7 @@ body {
     padding: 10px;
     text-align: center;
     font-size: 20px;
+    font-family: 'Kumbh Sans', sans-serif;
 }
 
 .loginbutton2:hover {
@@ -128,6 +131,23 @@ body {
 
 
 /* Guest Page CSS */
+.smalllogo{
+    width:15%; /* Dynamic width for changing screen size */
+    float: left;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+}
+
+.otherButtons{
+    width: 100%;
+    float: right;
+}
+
 .logoutbutton{
     background-color: #083D77;
     color:white;
@@ -137,28 +157,141 @@ body {
     text-align: center;
     display: inline-block;
     font-size: 18px;
+    float: right;
+    font-family: 'Kumbh Sans', sans-serif;
 }
 
 .logoutbutton:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-.order{
+.col1{
+    float: left;
+    width:59.5%;
+}
+
+.col2{
+    width:39.5%;
+    float: left;
     border: 3px solid #083D77;
     background-color: transparent;
     border-radius: 8px;
+    text-align: center;
 }
 
-.filter {
-    background-color: #083D77;
-    border-radius: 8px;
+.title1{
+    font-size: 25px;
+    padding: 2% 0% 0% 5%;
+    float: left;
+}
+
+.checkout{
+    background-color: #339989;
     color: white;
-    width: 100%;
-    text-align: left;
+    border-radius: 8px;
+    border: none;
+    padding: 8px 15px 11px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    width: 90%;
+    float: center;
+    font-family: 'Kumbh Sans', sans-serif;
 }
 
-.itemsBox{
+.checkout:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.scroll{
+    margin:4px, 4px;
+    padding:4px;
+    border: 3px solid #083D77;
+    background-color: transparent;
+    width: 98%;
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
+    border-radius: 8px;
+}
+
+.search{
+    width: 77.75%;
+    border-radius: 10px;
+    padding:5px;
     border: 3px solid #083D77;
     background-color: transparent;
     border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.searchbutton{
+    width: 19%; /* Dynamic width for changing screen size */
+    background-color: #083D77;
+    color:white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.searchbutton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.horiz{
+    width:90%;
+    align: center;
+    size: 6px;
+}
+
+.menuitem{
+    width: 29%; /* Dynamic width for changing screen size */
+    background-color: #C8CED4;
+    color:black;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    font-family: 'Kumbh Sans', sans-serif;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.24), 0 4px 5px 0 rgba(0,0,0,0.19);
+    float: left;
+    margin: 1%;
+}
+
+.menuname{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menuprice{
+    font-size: 15px;
+}
+
+.menuproducer{
+    font-size: 10px;
+}
+
+.menualcpercentage{
+    font-size: 10px;
+}
+
+.addorder{
+    width: 90%; /* Dynamic width for changing screen size */
+    background-color: #083D77;
+    color:white;
+    border: none;
+    border-radius: 8px;
+    padding: 2px;
+    text-align: center;
+    font-size: 10px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.addorder:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
