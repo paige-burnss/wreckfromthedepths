@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WFD Login</title>
+    <script type="text/javascript" src="dict.js"></script>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="Beverages.js"></script>
+    <script type="text/javascript" src="DBLoaded.js"></script>
+    <script type="text/javascript" src="loader.js"></script>
+    <script type="text/javascript" src="control.js"></script>
+    <script type="text/javascript" src="createItem.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+<div class="row">
+    <div class="col float-left">
+        <img class="smalllogo" src="photos/LogoWOName.jpg" alt="WreckFromDepths Logo"> <br><br>
+    </div>
+    <div class="col text-right">
+        <a href="index.html">
+            <button class="accountingbutton" id="accounting-button">Accounting</button>
+            <button class="logoutbutton translate" id="lg"> Logout of Manager</button>
+        </a>
+        <button class="langbutton translate" id="lang">
+            <img class="world" src="photos/worldIcon.png"> EN
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-8">
+        <div class="dropdown">
+            <button class="filter btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Filter
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#" id="pop">Popular</a></li>
+                <li><a class="dropdown-item" href="#" id="beer">Beer</a></li>
+                <li><a class="dropdown-item" href="#" id="wine">Wine</a></li>
+                <li><a class="dropdown-item" href="#" id="spir">Spirits</a></li>
+                <li><a class="dropdown-item" href="#" id="snack">Snacks</a></li>
+            </ul>
+        </div>
+        <br>
+        <div class="itemsBox" id="items-box">
+
+
+        </div>
+    </div>
+
+</div>
+<div id="prodInf" class="prodModal">
+    <div class="prodModal-content">
+        <span class="close">&times;</span>
+        <p class="boxTitle" id="prodI">Product Information</p>
+        <p> ----------------------------------</p>
+        <p class="prodType" id="prodT">Product Type: </p>
+        <p class="supplier" id="supp">Supplier: </p>
+        <p class="prodPrice" id="price">Price: </p>
+        <p class="amountLeft" id="amoLef">Amount left: </p>
+
+        <div class="buttons" style="width: 100%"  >
+            <button style="width: 30%" id="removeItem">Remove from Menu</button>
+            <button style="width: 30%" id="manageP">Manage Prince</button>
+            <button style="width: 30%" id="refillInv">Refill Inventory</button>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="manage-price" class="priceMgmt">
+    <div class="priceMgmt-content">
+        <span class="close">&times;</span>
+        <p class="boxTitle" id="priceM">Price Management</p>
+        <p> ----------------------------------</p>
+        <p class="currPrice" id="current-pr">Current price: </p>
+        <p class="newPrice" id="new-price">New Price: </p>
+
+
+        <div class="priceButtons" style="width: 100%"  >
+            <button style="width: 40%" id="cancel-button">Cancel</button>
+            <button style="width: 40%" id="set-price">Set new Price</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="remove-item" class="removeItem">
+    <div class="remove-content">
+        <span class="close">&times;</span>
+        <p class="boxTitle" id="remove">Remove Item</p>
+        <p> ----------------------------------</p>
+        <p>Are you sure that you want to remove this item? </p>
+
+
+
+        <div class="priceButtons" style="width: 100%"  >
+            <button style="width: 40%" id="cancel-button">Cancel</button>
+            <button style="width: 40%" id="yes-button">Yes</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+</body>
+
+</html>
