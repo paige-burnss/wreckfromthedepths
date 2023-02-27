@@ -1,5 +1,5 @@
 $(document).ready(function () {
-        updateView();                            // insert all texts in the right place...
+        updateView();                    // insert all texts in the right place...
         $(".modal").hide();
         // Hide all modal dialogues on loading the page.
 
@@ -34,8 +34,8 @@ $(document).ready(function () {
         );
 
         $("menu").load("Beverages_eng.js", function(){
-                for(i=0; i < DB2.length(); i++){
-                    makeMenuItem(DB2[i].nr);
+                for(i=0; i < DB3.spirits.length(); i++){
+                    makeMenuItem(DB2.spirits[i].nr);
                 }
             }
         );
@@ -75,8 +75,8 @@ function makeDiv(ids, classes, content){
 }
 
 function getItem(key){
-    for(i = 0; i < DB2.length(); i++){
-        item = DB2[i];
+    for(i = 0; i < DB3.spirits.length(); i++){
+        item = DB3.spirits[i];
         if(item.nr = key){
             return item;
         }
@@ -88,7 +88,7 @@ function makeMenuItem(key){
     return makeDiv("i"+ key, "menuitem", [makeSpan("n"+key, "menuname", item.name), '<br>',
             makeSpan("p"+key, "menuprice", item.priceinclvat), '<br>',
             makeSpan("pr"+key, "menuproducer", item.producer), '&#x2022',
-            makeSpan("a"+key, "menualcpercentage", item.alcoholstrength)])
+            makeSpan("a"+key, "menualcpercentage", item.alcoholstrength)]);
 
 }
 
@@ -130,6 +130,13 @@ function openVIP(){
 //opens manager.html page
 function openMan(){
     location.href = './manager.html';
+}
+
+function addOrder(key){
+    let item = getItem(key);
+    let div1 = makeDiv("i1"+ key, "menuitem", [makeSpan("n"+key, "menuname", item.name), '<br>',
+        makeSpan("p1"+key, "menuprice", item.priceinclvat)]);
+    document.getElementById('#orderdetails').appendChild(div1);
 }
 
 // function searchDrinks() {

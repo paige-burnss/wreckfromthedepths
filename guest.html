@@ -44,28 +44,28 @@
             <input id="searchbar" onkeyup="searchDrink()" type="text" name="search" placeholder="Search" class="search">
             <button class="searchbutton translate" id="search">Search</button>
             <div id="menu" class="scroll">
-                <div class="menuitem">
-                    <span class="menuname">Wine</span> <br>
-                    <span class="menuprice">$$$</span> <br>
-                    <span class="menuproducer">No One</span>
+                <div id="i10001" class="menuitem">
+                    <span id="n10001" class="menuname">Wine</span> <br>
+                    <span id="p10001" class="menuprice">$$$</span> <br>
+                    <span id="pr10001" class="menuproducer">No One</span>
                     <span> &#183 </span>
-                    <span class="menualcpercentage"> 40%</span><br>
+                    <span id="a10001" class="menualcpercentage"> 40%</span><br>
+                    <button id="10001" class="addorder" onclick="addOrder(this.id)">Add to Order</button>
+                </div>
+                <div class="menuitem">
+                    <span id="b1" class="menuname">Beer</span> <br>
+                    <span id="b2" class="menuprice">$$$</span> <br>
+                    <span id="b3" class="menuproducer">No One</span>
+                    <span> &#183 </span>
+                    <span id="b4" class="menualcpercentage"> 40%</span><br>
                     <button class="addorder">Add to Order</button>
                 </div>
                 <div class="menuitem">
-                    <span class="menuname">Beer</span> <br>
-                    <span class="menuprice">$$$</span> <br>
-                    <span class="menuproducer">No One</span>
+                    <span id="s1" class="menuname">Vodka</span> <br>
+                    <span id="s2" class="menuprice">$$$</span> <br>
+                    <span id="s3" class="menuproducer">No One</span>
                     <span> &#183 </span>
-                    <span class="menualcpercentage"> 40%</span><br>
-                    <button class="addorder">Add to Order</button>
-                </div>
-                <div class="menuitem">
-                    <span class="menuname">Vodka</span> <br>
-                    <span class="menuprice">$$$</span> <br>
-                    <span class="menuproducer">No One</span>
-                    <span> &#183 </span>
-                    <span class="menualcpercentage"> 40%</span><br>
+                    <span id="s4" class="menualcpercentage"> 40%</span><br>
                     <button class="addorder">Add to Order</button>
                 </div>
             </div>
@@ -73,6 +73,7 @@
         <div class="col2">
             <span id="order" class="translate title1">Order</span>
             <br><br><br><br>
+            <div id="orderdetails"></div>
             <hr class="horiz">
             <button id="checkout" class="translate checkout">Check Out</button>
             <br><br>
