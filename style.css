@@ -165,6 +165,18 @@ body {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+.accountingbutton{
+    background-color: #083D77;  
+    color:white;                
+    border: none;               
+    border-radius: 8px;         
+    padding: 8px 15px 11px 15px;
+    text-align: center;         
+    display: inline-block;      
+    font-size: 18px;            
+
+}
+
 .col1{
     float: left;
     width:59.5%;
@@ -214,6 +226,190 @@ body {
     overflow-y: auto;
     text-align:justify;
     border-radius: 8px;
+}
+
+.prodModal{
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    text-align: center;
+
+}
+.prodModal-content{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    width: 60%;
+    text-align: center;
+}
+
+#amoLef, #prodT, #supp, #price, #current-pr, #new-price{
+    text-align: left;
+    margin-left: 100px;
+}
+
+.buttons{
+    float: left;
+    display: inline;
+}
+
+#removeItem{
+    background-color: #083D77;
+    left: 100%;
+    width: 30%;
+    height: 44px;
+    color: #fefefe;
+    border-radius: 8px;
+    border: none;
+}
+
+#manage{  
+    background-color:#E1CE7A;
+    width: 30%;
+    height: 44px;
+    color: white;
+    border-radius: 8px;
+    border: none;
+}
+
+#refillInv{
+    background-color:#339989;
+    width: 30%;
+    height: 44px;
+    color: white;
+    border-radius: 8px;
+    border: none;
+}
+
+.priceMgmt{
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    text-align: center;
+}
+
+.priceMgmt-content{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    width: 60%;
+    text-align: center;
+}
+
+#set-price{
+    background-color: #339989;
+    width: 40%;
+    height: 44px;
+    color: white;
+    border-radius: 8px;
+    border: none;
+}
+
+#cancel-button{
+      background-color: #083D77;
+      width: 40%;
+      height: 44px;
+      color: white;
+      border-radius: 8px;
+      border: none;
+}
+
+#cancel-button2{
+      background-color: #083D77;
+      width: 40%;
+      height: 44px;
+      color: white;
+      border-radius: 8px;
+      border: none;
+}
+
+#yes-button{
+     background-color: #339989;     
+     width: 40%;                    
+     height: 44px;                  
+     color: white;                  
+     border-radius: 8px;            
+     border: none;                  
+}
+
+.removeItem{
+    display: none;     
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    text-align: center;
+}
+
+.remove-content{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    width: 60%;
+    text-align: center;
+}
+
+
+.callSecurity{
+    background-color: red;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px 11px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    width: 15%;
+}
+
+#telephone-logo{
+  width: 30%;
+}
+
+.secModal{
+    /*display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */                       
+    z-index: 1; /* Sit on top */                               
+    padding-top: 100px; /* Location of the box */              
+    left: 0;                                                   
+    top: 0;                                                    
+    width: 100%; /* Full width */                              
+    height: 100%; /* Full height */                            
+    overflow: auto; /* Enable scroll if needed */              
+    background-color: rgb(0,0,0); /* Fallback color */         
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */  
+    text-align: center;                                        
+}
+
+.secModalCon {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    width: 40%;
+    text-align: center;
+    padding-bottom: 15%;
+
 }
 
 .search{
