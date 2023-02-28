@@ -33,11 +33,8 @@ $(document).ready(function () {
             }
         );
 
-        $("menu").load("Beverages_eng.js", function(){
-                for(i=0; i < DB2.length(); i++){
-                    makeMenuItem(DB2[i].nr);
-                }
-            }
+        $("#menu").html(
+                makeMenu()
         );
     }
 );
@@ -48,7 +45,7 @@ function makeSpan(ids, classes, content){
         temp += ' id="' + ids +'"';
     }
     if(classes != ""){
-        tempo += ' class="' + classes + '"';
+        temp += ' class="' + classes + '"';
     }
     temp += ">";
     for(i in content){
@@ -64,7 +61,7 @@ function makeDiv(ids, classes, content){
         temp += ' id="' + ids +'"';
     }
     if(classes != ""){
-        tempo += ' class="' + classes + '"';
+        temp += ' class="' + classes + '"';
     }
     temp += ">";
     for(i in content){
@@ -75,9 +72,9 @@ function makeDiv(ids, classes, content){
 }
 
 function getItem(key){
-    for(i = 0; i < DB2.length(); i++){
+    for(var i = 0; i < DB2.length; i++){
         item = DB2[i];
-        if(item.nr = key){
+        if(item.nr === key){
             return item;
         }
     }
@@ -90,6 +87,14 @@ function makeMenuItem(key){
             makeSpan("pr"+key, "menuproducer", item.producer), '&#x2022',
             makeSpan("a"+key, "menualcpercentage", item.alcoholstrength)])
 
+}
+
+function makeMenu(){
+    let tempmenu = "";
+    for(var i=0; i < DB2.length; i++){
+        tempmenu += makeMenuItem(DB2[i].nr);
+    }
+    return tempmenu;
 }
 
 //hides the login modal for the Manager user
