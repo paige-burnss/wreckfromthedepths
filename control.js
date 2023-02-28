@@ -55,6 +55,22 @@ function makeSpan(ids, classes, content){
     return temp;
 }
 
+function makeButton(ids, classes, content){
+    let temp = "<button";
+    if(ids != ""){
+        temp += ' id="' + ids +'"';
+    }
+    if(classes != ""){
+        temp += ' class="' + classes + '"';
+    }
+    temp += ">";
+    for(i in content){
+        temp += content[i];
+    }
+    temp += "</button>";
+    return temp;
+}
+
 function makeDiv(ids, classes, content){
     let temp = "<div";
     if(ids != ""){
@@ -84,8 +100,9 @@ function makeMenuItem(key){
     let item = getItem(key);
     return makeDiv("i"+ key, "menuitem", [makeSpan("n"+key, "menuname", item.name), '<br>',
             makeSpan("p"+key, "menuprice", item.priceinclvat), '<br>',
-            makeSpan("pr"+key, "menuproducer", item.producer), '&#x2022',
-            makeSpan("a"+key, "menualcpercentage", item.alcoholstrength)])
+            makeSpan("pr"+key, "menuproducer", item.producer), '<br>',
+            makeSpan("a"+key, "menualcpercentage", item.alcoholstrength), '<br>',
+            makeButton(key, "addorder", "Add to Order")])
 
 }
 
