@@ -1,24 +1,147 @@
-// $(document).ready(function () {
-//     $("#man").text(dict['man']);
-// });
+$(document).ready(function () {
+        updateView();                            // insert all texts in the right place...
+        $(".modal").hide();
+        // Hide all modal dialogues on loading the page.
 
-// Get the modal
-var modal = document.getElementById("vipModal");
-// Get the button that opens the modal
-var btn = document.getElementById("vip");
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-// When the user clicks on the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+        $("#vipModal").click(function () {  // Clicking on the VIP modal dialogue closes it.
+                hideVIP();
+            }
+        );
+
+        $("#manModal").click(function () {  // Clicking on the VIP modal dialogue closes it.
+                hideMan();
+            }
+        );
+
+        $("#vip").click(function () {
+                showVIP();
+            }
+        );
+
+        $("#man").click(function () {
+                showMan();
+            }
+        );
+
+        $("#close").click(function () {
+                hideVIP();
+            }
+        );
+
+        $("#close1").click(function () {
+                hideMan();
+            }
+        );
+
+        $("menu").load("Beverages_eng.js", function(){
+                for(i=0; i < DB2.length(); i++){
+                    makeMenuItem(DB2[i].nr);
+                }
+            }
+        );
+    }
+);
+
+function makeSpan(ids, classes, content){
+    let temp = "<span";
+    if(ids != ""){
+        temp += ' id="' + ids +'"';
+    }
+    if(classes != ""){
+        tempo += ' class="' + classes + '"';
+    }
+    temp += ">";
+    for(i in content){
+        temp += content[i];
+    }
+    temp += "</span>";
+    return temp;
 }
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+
+function makeDiv(ids, classes, content){
+    let temp = "<div";
+    if(ids != ""){
+        temp += ' id="' + ids +'"';
+    }
+    if(classes != ""){
+        tempo += ' class="' + classes + '"';
+    }
+    temp += ">";
+    for(i in content){
+        temp += content[i];
+    }
+    temp += "</div>";
+    return temp;
 }
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+
+function getItem(key){
+    for(i = 0; i < DB2.length(); i++){
+        item = DB2[i];
+        if(item.nr = key){
+            return item;
+        }
+    }
 }
+
+function makeMenuItem(key){
+    let item = getItem(key);
+    return makeDiv("i"+ key, "menuitem", [makeSpan("n"+key, "menuname", item.name), '<br>',
+            makeSpan("p"+key, "menuprice", item.priceinclvat), '<br>',
+            makeSpan("pr"+key, "menuproducer", item.producer), '&#x2022',
+            makeSpan("a"+key, "menualcpercentage", item.alcoholstrength)])
+
+}
+
+//hides the login modal for the Manager user
+function hideVIP() {
+    $("#vipModal").hide();
+}
+
+//opens the login modal for the VIP user
+function showVIP() {
+    $("#vipModal").show();
+}
+
+//hides the login modal for the Manager user
+function hideMan() {
+    $("#manModal").hide();
+}
+
+//opens the login modal for the Manager user
+function showMan() {
+    $("#manModal").show();
+}
+
+//opens index.html page
+function openIndex(){
+    location.href = './index.html';
+}
+
+//opens guest.html page
+function openGuest(){
+    location.href = './guest.html';
+}
+
+//opens VIP.html page
+function openVIP(){
+    location.href = './vip.html';
+}
+
+//opens manager.html page
+function openMan(){
+    location.href = './manager.html';
+}
+
+// function searchDrinks() {
+//     let input = document.getElementById('searchbar').value
+//     input=input.toLowerCase();
+      
+//     for (i = 0; i < x.length; i++) { 
+//         if (!x[i].innerHTML.toLowerCase().includes(input)) {
+//             x[i].style.display="none";
+//         }
+//         else {
+//             x[i].style.display="list-item";                 
+//         }
+//     }
+// }

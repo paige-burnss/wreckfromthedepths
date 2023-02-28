@@ -4,7 +4,6 @@ function dict_get(item) {
 
 let lang = "eng";
 
-
 function surpriseMe() {
     lang = "surprise";
     let ids = $('.translate').map(function () {
@@ -20,7 +19,6 @@ function surpriseMe() {
 
 
 function switchLang() {
-    console.log(lang);
 
     if (lang == "eng") {
         lang = "swe";
@@ -29,8 +27,8 @@ function switchLang() {
     } else {
         lang = "eng"
     }
-
-    console.log(lang);
+}
+function updateView() {
 
     let ids = $('.translate').map(function () {
         return this.id;
