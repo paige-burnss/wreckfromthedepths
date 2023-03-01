@@ -34,7 +34,7 @@ $(document).ready(function () {
         );
 
         $("#menu").html(
-                makeMenu()
+                makeMenuCustomer()
         );
     }
 );
@@ -55,13 +55,16 @@ function makeSpan(ids, classes, content){
     return temp;
 }
 
-function makeButton(ids, classes, content){
+function makeButton(ids, classes, onclick, content){
     let temp = "<button";
     if(ids != ""){
         temp += ' id="' + ids +'"';
     }
     if(classes != ""){
         temp += ' class="' + classes + '"';
+    }
+    if(onclick != ""){
+        temp+= ' onclick="' + onclick + '"';
     }
     temp += ">";
     for(i in content){
@@ -96,22 +99,30 @@ function getItem(key){
     }
 }
 
-function makeMenuItem(key){
+function makeMenuItemCustomer(key){
     let item = getItem(key);
-    return makeDiv("i"+ key, "menuitem", [makeSpan("n"+key, "menuname", item.name), '<br>',
-            makeSpan("p"+key, "menuprice", item.priceinclvat), '<br>',
+    let name = item.name;
+    let price = item.priceinclvat;
+    return makeDiv("i"+ key, "menuitem", [makeSpan("n"+key, "menuname", name), '<br>',
+            makeSpan("p"+key, "menuprice", price), '<br>',
             makeSpan("pr"+key, "menuproducer", item.producer), '<br>',
             makeSpan("a"+key, "menualcpercentage", item.alcoholstrength), '<br>',
-            makeButton(key, "addorder", "Add to Order")])
-
+            makeButton("o"+ key, "addorder", 'addOrder(' + name + ', ' + price + ')', "Add to Order")]);
 }
 
-function makeMenu(){
+function makeMenuCustomer(){
     let tempmenu = "";
     for(var i=0; i < DB2.length; i++){
-        tempmenu += makeMenuItem(DB2[i].nr);
+        tempmenu += makeMenuItemCustomer(DB2[i].nr);
     }
     return tempmenu;
+}
+
+function addOrder(name, price){
+    let tempOrderList = document.getElementById("#orders");
+    tempOrderList.innerhtml += makeDiv("o"+ key, "orderitem", [makeSpan("on"+key, "ordername", name), '<br>',
+        makeSpan("op"+key, "orderprice", price)]);
+    return tempOrderList;
 }
 
 //hides the login modal for the Manager user
