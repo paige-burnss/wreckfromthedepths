@@ -50,6 +50,7 @@ dict = {
         "manl": "Manager Login",
         "login": "Login",
         "lg": "Logout of Guest",
+        "lgm": "Logout of Manager",
         "pop": "Popular",
         "beer": "Beer",
         "wine": "Wine",
