@@ -32,10 +32,43 @@ $(document).ready(function () {
                 hideMan();
             }
         );
+         $(".close2").click(function () {
+            hideProd();
+        }
+         );
+
+         $(".close").click(function () {
+            hideMan();
+        }
+        );
 
         $("#menu").html(
-                makeMenu()
+                makeMenuCustomer()
         );
+     $("#menu1").html(
+        makeMenuManager()
+    );
+
+    $(".productInfo").click(function () {
+            showProd();
+        }
+    );
+
+    $("#manageP").click(function () {
+            showPriceMgmt();
+        }
+    );
+
+    $("#removeItem1").click(function () {
+            showRemoveItem();
+        }
+    );
+
+    $("#refillInv").click(function () {
+            hideProd();
+        }
+    );
+
     }
 );
 
@@ -96,7 +129,7 @@ function getItem(key){
     }
 }
 
-function makeMenuItem(key){
+function makeMenuItemCustomer(key){
     let item = getItem(key);
     return makeDiv("i"+ key, "menuitem", [makeSpan("n"+key, "menuname", item.name), '<br>',
             makeSpan("p"+key, "menuprice", item.priceinclvat), '<br>',
@@ -105,15 +138,27 @@ function makeMenuItem(key){
             makeButton(key, "addorder", "Add to Order")])
 
 }
+function makeMenuItemManager(key){
+    let item = getItem(key);
+    return makeDiv("i"+ key, "menuitem1", [makeSpan("n"+key, "menuname", item.name), '<br>',
 
-function makeMenu(){
+        makeButton(key, "productInfo", "Product information")])
+
+}
+function makeMenuCustomer(){
     let tempmenu = "";
     for(var i=0; i < DB2.length; i++){
-        tempmenu += makeMenuItem(DB2[i].nr);
+        tempmenu += makeMenuItemCustomer(DB2[i].nr);
     }
     return tempmenu;
 }
-
+function makeMenuManager(){
+    let tempmenu = "";
+    for(var i=0; i < DB2.length; i++){
+        tempmenu += makeMenuItemManager(DB2[i].nr);
+    }
+    return tempmenu;
+}
 //hides the login modal for the Manager user
 function hideVIP() {
     $("#vipModal").hide();
@@ -133,7 +178,22 @@ function hideMan() {
 function showMan() {
     $("#manModal").show();
 }
+function showProd() {
+    $(".prodModal").show();
+}
 
+function hideProd() {
+    $(".prodModal").hide();
+}
+function showPriceMgmt() {
+    $(".priceMgmt").show();
+    $(".prodModal").hide();
+}
+
+function showRemoveItem(){
+    $(".removeItem").show();
+    $(".prodModal").hide();
+}
 //opens index.html page
 function openIndex(){
     location.href = './index.html';
