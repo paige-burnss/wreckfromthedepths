@@ -52,13 +52,18 @@ $(document).ready(function () {
                 hideVIP();
             }
         );
-
+        
         $(".close1").click(function () { //clicking on the "x" button in the manager modal closes it
                 hideMan();
             }
         );
+        
+         $(".close2").click(function () {
+            hideProd();
+        }
+         );
 
-        $(".close2").click(function () { //clicking on the "x" button in the checkout modal closes it
+        $(".close6").click(function () { //clicking on the "x" button in the checkout modal closes it
                 hideCheckOut();
             }
         );
@@ -98,6 +103,31 @@ $(document).ready(function () {
         $("#discount").html( //on page load up, the discount is loaded for the customer
                 showDiscount()
         );
+        
+    $("#menu1").html(
+        makeMenuManager()
+    );
+
+    $(".productInfo").click(function () {
+            showProd();
+        }
+    );
+
+    $("#manageP").click(function () {
+            showPriceMgmt();
+        }
+    );
+
+    $("#removeItem1").click(function () {
+            showRemoveItem();
+        }
+    );
+
+    $("#refillInv").click(function () {
+            hideProd();
+        }
+    );
+
     }
 );
 
@@ -186,6 +216,20 @@ function makeMenuCustomer(){ //making menu for guest and vip page
     let tempmenu = "";
     for(var i=0; i < DB2.length; i++){ //for loop to go through the entire drinks database
         tempmenu += makeMenuItemCustomer(DB2[i].nr); //calls makeMenuItem function with the key for each drink in database
+    }
+    return tempmenu;
+}
+
+function makeMenuItemManager(key){
+    let item = getItem(key);
+    return makeDiv("i"+ key, "menuitem1", [makeSpan("n"+key, "menuname", item.name), '<br>',
+  makeButton(key, "productInfo", "Product information")])
+}
+
+function makeMenuManager(){
+    let tempmenu = "";
+    for(var i=0; i < DB2.length; i++){
+        tempmenu += makeMenuItemManager(DB2[i].nr);
     }
     return tempmenu;
 }
@@ -347,6 +391,22 @@ function hideMan() { //hides the login modal for the Manager user
 
 function showMan() { //opens the login modal for the Manager user
     $("#manModal").show();
+}
+function showProd() {
+    $(".prodModal").show();
+}
+
+function hideProd() {
+    $(".prodModal").hide();
+}
+function showPriceMgmt() {
+    $(".priceMgmt").show();
+    $(".prodModal").hide();
+}
+
+function showRemoveItem(){
+    $(".removeItem").show();
+    $(".prodModal").hide();
 }
 
 function hideCheckOut() { //hides the checkout modal
