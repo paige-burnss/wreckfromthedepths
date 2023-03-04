@@ -34,31 +34,150 @@
             <button class="logoutbutton translate" id="lg" onclick="openIndex()"></button>
             <div class="langbutton translate" id="langbtn" onclick="switchLang()">
                 <img id="langIcon" class="world image" src="photos/worldIcon.png">
-                <span id="lang" class="translate"></span>  <!-- bilden saknas -->
+                <span id="lang" class="translate"></span>
             </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col1">
-            <input id="searchbar" onkeyup="searchDrink()" type="text" name="search" placeholder="Search" class="search">
-            <button class="searchbutton translate" id="search">Search</button>
+            <input id="searchbar" type="text" name="search" placeholder="Search" class="search" onchange="searchDrinks(this.value)">
+            <br><br>
             <div id="menu" class="scroll">
-                
+
             </div>
         </div>
         <div class="col2">
-            <span id="order" class="translate title1">Order</span> <br>
-            <div id="orders">
-                
-            </div>
-            <br><br><br><br>
+            <span id="order" class="translate title1"></span> <br><br><br>
+            <div id="orders" class="scroll2"></div>
             <hr class="horiz">
-            <button id="checkout" class="translate checkout">Check Out</button>
+            <div class="total">
+                <div class="col6">
+                    <span id="tot" class="translate"></span> <br>
+                    <span id="dis" class="translate"></span> <br>
+                    <span id="finaltot" class="translate totalprice"></span>
+                </div>
+                <div class="col7">
+                    <span id="totalprice"></span><br>
+                    <span id="discount"></span><br>
+                    <span id="finalprice" class="totalprice"></span>
+                </div>
+            </div>
+            <button id="checkout" class="translate checkout" onclick="showCheckOut()"></button>
             <br><br>
         </div>
     </div>
+
+
+    <div id="checkOutModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close2">&times;</span>
     
+            <p class="logintitle translate" id="checkOut"></p>
+    
+            <div class="typeOfPay">
+                <button class="payType translate" id="oneBill"></button>
+                <button class="payType translate" id="splitBill"></button>
+            </div>
+    
+        </div>
+    
+    </div>
+
+    <div id="oneBillModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close3">&times;</span>
+    
+            <p class="logintitle translate" id="checkOut1"></p>
+
+            <div class="typeOfPay">
+                <div class="payType1 translate" id="oneBill1"></div>
+            </div>
+            <br>
+
+            <div class="total1">
+                <div class="col6">
+                    <span id="tot1" class="translate"></span> <br>
+                    <span id="dis1" class="translate"></span> <br>
+                    <span id="finaltot1" class="translate totalprice1"></span>
+                </div>
+                <div class="col7">
+                    <span id="totalprice1"></span><br>
+                    <span id="discount1"></span><br>
+                    <span id="finalprice1" class="totalprice1"></span>
+                </div>
+            </div>
+            
+            <br><br><br><br><br>
+
+            <button class="translate payNow" id="payNow" onclick="payTasks()"></button>
+    
+        </div>
+    
+    </div>
+
+
+    <div id="splitBillModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close4">&times;</span>
+    
+            <p class="logintitle translate" id="checkOut2"></p>
+    
+            <div class="typeOfPay">
+                <div class="payType1 translate" id="splitBill1"></div>
+            </div>
+
+            <div class="total1">
+                <div class="col6">
+                    <span id="tot2" class="translate"></span> <br>
+                    <span id="dis2" class="translate"></span> <br>
+                    <span id="finaltot2" class="translate totalprice1"></span>
+                </div>
+                <div class="col7">
+                    <span id="totalprice2"></span><br>
+                    <span id="discount2"></span><br>
+                    <span id="finalprice2" class="totalprice1"></span>
+                </div>
+            </div>
+            
+            <br><br><br><br><br>
+
+            <div class="input-group mb-3">
+                <input id="numPeople" type="text" class="form-control freeResponse1" placeholder="# of People" aria-label="Username"
+                       aria-describedby="basic-addon1" onchange="splitCheck(this.value)">
+            </div>
+            <br>
+
+            <div class="total1">
+                <div class="col6">
+                    <span id="ftpp" class="totalprice1 translate"></span> <br>
+                </div>
+                <div class="col7">
+                    <span id="finaltotalperperson" class="totalprice1"></span><br>
+                </div>
+            </div>
+
+            <br><br>
+            <button class="translate payNow" id="payNow1" onclick="payTasks()"></button>
+    
+        </div>
+    
+    </div>
+
+    <div id="payNowModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close5">&times;</span>
+    
+            <p class="translate announcement" id="waiter"></p>
+    
+        </div>
+    
+    </div>
+
 </body>
 
 </html>
