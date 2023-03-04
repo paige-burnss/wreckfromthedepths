@@ -98,26 +98,11 @@ body {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); /* Adds drop shadow when mouse hovers over button */
 }
 
-.modal1 {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    text-align: center;
-  }
-
   .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 175px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -132,7 +117,16 @@ body {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
-    width: 80%;
+    width: 50%;
+    border-radius: 8px;
+  }
+
+  .freeResponse{
+    background-color: #D9D9D9;
+    width:80%;
+    padding: 5px;
+    border-color: transparent;
+    border-radius: 8px;
   }
 
 
@@ -163,7 +157,7 @@ body {
     color:white;
     border: none;
     border-radius: 8px;
-    padding: 8px 15px 11px 15px;
+    padding: 10px 15px 13px 15px;
     text-align: center;
     display: inline-block;
     font-size: 18px;
@@ -239,6 +233,253 @@ body {
     overflow-y: auto;
     text-align:justify;
     border-radius: 8px;
+}
+
+.search{
+    width: 97.75%;
+    border-radius: 10px;
+    padding:5px;
+    border: 3px solid #083D77;
+    background-color: transparent;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.horiz{
+    width:90%;
+    text-align: center;
+    size: 6px;
+}
+
+.menuitem{
+    width: 29%; /* Dynamic width for changing screen size */
+    background-color: #C8CED4;
+    color:black;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    font-family: 'Kumbh Sans', sans-serif;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.24), 0 4px 5px 0 rgba(0,0,0,0.19);
+    float: left;
+    margin: 1%;
+}
+
+.menuname{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menuprice{
+    font-size: 15px;
+}
+
+.menuproducer{
+    font-size: 10px;
+}
+
+.menualcpercentage{
+    font-size: 10px;
+}
+
+.addorder{
+    width: 90%; /* Dynamic width for changing screen size */
+    background-color: #083D77;
+    color:white;
+    border: none;
+    border-radius: 8px;
+    padding: 2px;
+    text-align: center;
+    font-size: 10px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.addorder:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.orderitem{
+    background-color: #C8CED4;
+    color:black;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: left;
+    display: inline-block;
+    width: 90%; /* Dynamic width for changing screen size */
+    font-family: 'Kumbh Sans', sans-serif;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.24), 0 4px 5px 0 rgba(0,0,0,0.19);
+}
+
+.scroll2{
+    margin:4px, 4px;
+    padding:4px;
+    background-color: transparent;
+    width: 98%;
+    height: 335px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:center;
+    border-radius: 8px;
+}
+
+.ordername{
+    font-weight:bold;
+}
+
+.orderprice{
+    color:#339989;
+}
+
+.col4{
+    padding:0% 0% 0% 1%;
+    width:48.5%;
+    float: left;
+}
+
+.col5{
+    width:48.5%;
+    float: left;
+    text-align:right;
+}
+
+.remorderitem{
+    font-size:30px;
+    border: none;
+    background-color: #C8CED4;
+}
+
+.col6{
+    width:48.5%;
+    text-align:left;
+    float:left;
+    padding: 1% 0% 1% 5%;
+}
+.col7{
+    width:41.5%;
+    float:left;
+    text-align:right;
+    padding: 1% 5% 1% 0%;
+}
+
+.totalprice{
+    font-size:25px;
+}
+
+.close2 { /* For 'x' to close modal boxes */
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right; /* Right aligned in modal */
+    float: right;
+}
+
+.payType{
+    width: 30%; /* Dynamic width for changing screen size */
+    background-color: #083D77;
+    color:white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.payType:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.payType1{
+    width: 30%; /* Dynamic width for changing screen size */
+    background-color: #083D77;
+    color:white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    display: inline-block;
+    font-size: 17px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.close3 { /* For 'x' to close modal boxes */
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right; /* Right aligned in modal */
+    float: right;
+}
+
+.close4 { /* For 'x' to close modal boxes */
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right; /* Right aligned in modal */
+    float: right;
+}
+
+.total1{
+    width:60%;
+    margin: auto;
+}
+
+.payNow{
+    background-color: #339989;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 8px 15px 11px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    width: 53%;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.freeResponse1{
+    background-color: #D9D9D9;
+    width:55%;
+    padding: 5px;
+    border-color: transparent;
+    border-radius: 8px;
+}
+
+.totalprice1{
+    font-size:20px;
+}
+
+.close5 { /* For 'x' to close modal boxes */
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right; /* Right aligned in modal */
+    float: right;
+}
+
+.announcement{
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+/* Manager Page CSS */
+.accountingbutton{
+    background-color: #083D77;  
+    color:white;                
+    border: none;               
+    border-radius: 8px;         
+    padding: 8px 15px 11px 15px;
+    text-align: center;         
+    display: inline-block;      
+    font-size: 18px;            
+
 }
 
 .prodModal{
@@ -423,7 +664,6 @@ body {
     width: 40%;
     text-align: center;
     padding-bottom: 15%;
-
 }
 
 .search{
