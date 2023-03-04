@@ -73,7 +73,7 @@ dict = {
         "finaltot2": "Final Total",
         "payNow1": "Pay Now",
         "ftpp": "Final Total per Person",
-        "waiter": "A waiter will be here shortly to take your card"
+        "waiter": "A waiter will be here shortly to take your card",
         "lgm": "Logout of Manager",
         "pop": "Popular",
         "beer": "Beer",
