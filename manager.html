@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>WFD Login</title>
+    <title>WFD Manager</title>
 
     <link rel="icon" href="photos/LogoWOName.jpg" type="image/x-icon">
     <script type="text/javascript" src="dict.js"></script>
@@ -26,85 +26,106 @@
 </head>
 
 <body>
-<div class="nav">
-    <div class="sl">
-        <img class="smalllogo" src="photos/LogoWOName.jpg" alt="WreckFromDepths Logo">
-    </div>
-    <div class="otherButtons">
-        <button class="accountingbutton" id="accounting-button">Accounting</button>
-        <button class="logoutbutton translate" id="lgm" onclick="openIndex()"></button>
-        <div class="langbutton translate" id="langbtn" onclick="switchLang()">
-            <img id="langIcon" class="world image" src="photos/worldIcon.png">
-            <span id="lang" class="translate"></span>  <!-- bilden saknas -->
+    <div class="nav">
+        <div class="sl">
+            <img class="smalllogo" src="photos/LogoWOName.jpg" alt="WreckFromDepths Logo">
         </div>
-    </div>
-</div>
-
-
-
-<div class="row">
-    <div class="col3">
-        <input id="searchbar" onkeyup="searchDrink()" type="text" name="search" placeholder="Search" class="search">
-        <button class="searchbutton translate" id="search">Search</button>
-        <div id="menu1" class="scroll">
-
+        <div class="otherButtons">
+            <button class="accountingbutton translate" id="accounting-button"></button>
+            <button class="logoutbutton translate" id="lgm" onclick="openIndex()"></button>
+            <div class="langbutton translate" id="langbtn" onclick="switchLang()">
+                <img id="langIcon" class="world image" src="photos/worldIcon.png">
+                <span id="lang" class="translate"></span>  <!-- bilden saknas -->
+            </div>
         </div>
     </div>
 
-</div>
 
-<div id="prodInf" class="prodModal">
-    <div class="prodModal-content">
-        <span class="close2">&times;</span>
-        <p class="boxTitle" id="prodI">Product Information</p>
-        <p> ----------------------------------</p>
-        <p class="prodType" id="prodT">Product Type: </p>
-        <p class="supplier" id="supp">Supplier: </p>
-        <p class="prodPrice" id="price">Price: </p>
-        <p class="amountLeft" id="amoLef">Amount left: </p>
 
-        <div class="buttons"   >
-            <button  id="removeItem1">Remove from Menu</button>
-            <button  id="manageP">Manage Prince</button>
-            <button  id="refillInv">Refill Inventory</button>
+    <div class="row">
+        <div class="col3">
+            <input id="searchbar1" onkeyup="searchDrink()" type="text" name="search" placeholder="Search" class="search" onchange="searchDrinks2(this.value)">
+            <div id="menu1" class="scroll"> </div>
         </div>
 
     </div>
 
-</div>
+    <div id="prodInf" class="modal">
 
-<div id="manage-price" class="priceMgmt">
-    <div class="priceMgmt-content">
-        <span class="close">&times;</span>
-        <p class="boxTitle" id="priceM">Price Management</p>
-        <p> ----------------------------------</p>
-        <p class="currPrice" id="current-pr">Current price: </p>
-        <p class="newPrice" id="new-price">New Price: </p>
+        <div class="modal-content">
+            <span class="close2">&times;</span>
 
+            <p class="logintitle translate" id="productinformation"></p>
 
-        <div class="priceButtons" style="width: 100%"  >
-            <button style="width: 40%" class="cancel-button">Cancel</button>
-            <button style="width: 40%" id="set-price">Set new Price</button>
+            <div class="total1">
+                <div class="col6">
+                    <span id="prodType" class="translate"></span> <br>
+                    <span id="prodSupp" class="translate"></span> <br>
+                    <span id="prodPric" class="translate"></span> <br>
+                    <span id="amountLeft" class="translate"></span> <br>
+                </div>
+                <div class="col7">
+                    <span id="prodType1"></span><br>
+                    <span id="prodSupp1"></span><br>
+                    <span id="prodPric1"></span> <br>
+                    <span id="amountLeft1"></span> <br>
+                </div>
+            </div>
 
+            <br><br><br><br><br><br>
+
+            <div class="buttons1">
+                <button  id="removeItem1">Remove from Menu</button>
+                <button  id="manageP">Manage Prince</button>
+                <button  id="refillInv">Refill Inventory</button>
+            </div>
+
+            <br>
+        </div>
+    </div>
+
+<div id="manage-price" class="modal">
+    <div class="modal-content">
+        <span class="close7">&times;</span>
+        <p class="logintitle translate" id="priceM"></p>
+
+        <div class="total1">
+            <div class="col6">
+                <span id="current-pr" class="translate"></span> <br>
+            </div>
+            <div class="col7">
+                <span id="current-pr1"></span> <br>
+            </div>
+
+            <div class="input-group mb-3 inputt">
+                <span id="new-price" class="translate"></span>
+                <input id="newPrice" type="text" class="form-control freeResponse2" placeholder="Price" aria-label="Username"
+                       aria-describedby="basic-addon1" onchange="">
+            </div>
+        </div>
+
+        <br><br><br>
+
+        <div class="priceButtons">
+            <button class="cancel-button translate" id="cancel"></button>
+            <button id="set-price" class="translate" onclick=""></button>
         </div>
 
     </div>
 
 </div>
 
-<div id="remove-item" class="removeItem">
-    <div class="remove-content">
-        <span class="close">&times;</span>
-        <p class="boxTitle" id="remove">Remove Item</p>
-        <p> ----------------------------------</p>
-        <p>Are you sure that you want to remove this item? </p>
+<div id="remove-item" class="modal">
+    <div class="modal-content">
+        <span class="close8">&times;</span>
+        <p class="logintitle translate" id="removeI"></p>
+        <p class="translate" id="areyousure"> </p>
 
 
 
-        <div class="priceButtons" style="width: 100%"  >
-            <button style="width: 40%" class="cancel-button">Cancel</button>
-            <button style="width: 40%" id="yes-button">Yes</button>
-
+        <div class="priceButtons">
+            <button class="cancel-button translate" id="cancel1"></button>
+            <button id="yes-button" class="translate"></button>
         </div>
 
     </div>
