@@ -1,6 +1,7 @@
 var numOrders = 0; //global variable for number of orders in the 'cart'
 var totalPrice = 0;
 var discount = 0;
+var changePrice = 0;
 
 $(document).ready(function () {
         updateView(); // insert all texts in the right place...
@@ -48,6 +49,16 @@ $(document).ready(function () {
             }
         );
 
+        $("#manageP").click(function () { //clicking on the manage p button opens the price management modal
+                showPriceMgmt();
+            }
+        );
+
+        $("#removeItem1").click(function () { //clicking on the remove item button opens the remove item modal
+                showRemoveItem();
+            }
+        );
+
         $(".close").click(function () { //clicking on the "x" button in the vip modal closes it
                 hideVIP();
             }
@@ -59,8 +70,8 @@ $(document).ready(function () {
         );
         
          $(".close2").click(function () {
-            hideProd();
-        }
+                hideProd();
+            }
          );
 
         $(".close6").click(function () { //clicking on the "x" button in the checkout modal closes it
@@ -80,6 +91,28 @@ $(document).ready(function () {
 
         $(".close5").click(function () { //clicking on the "x" button in the payNow modal closes it
                 hidePayNow();
+            }
+        );
+
+        $(".close7").click(function () { //clicking on the "x" button in the price management modal closes it
+                hidePriceMgmt();
+            }
+        );
+
+        $(".close8").click(function () { //clicking on the "x" button in the remove item modal closes it
+                hideRemoveItem();
+            }
+        );
+
+        $("#cancel").click(function () { //clicking on the cancel button in the price mgmt modal closes it and goes back to the prod info modal
+                hidePriceMgmt();
+                showProd();
+            }
+        );
+
+        $("#cancel1").click(function () { //clicking on the cancel button in the remove item modal closes it and goes back to the prod info modal
+                hideRemoveItem();
+                showProd();
             }
         );
 
@@ -104,29 +137,24 @@ $(document).ready(function () {
                 showDiscount()
         );
         
-    $("#menu1").html(
-        makeMenuManager()
-    );
+        $("#menu1").html(
+            makeMenuManager()
+        );
 
-    $(".productInfo").click(function () {
-            showProd();
-        }
-    );
+        $("#manageP").click(function () {
+                showPriceMgmt();
+            }
+        );
 
-    $("#manageP").click(function () {
-            showPriceMgmt();
-        }
-    );
+        $("#removeItem1").click(function () {
+                showRemoveItem();
+            }
+        );
 
-    $("#removeItem1").click(function () {
-            showRemoveItem();
-        }
-    );
-
-    $("#refillInv").click(function () {
-            hideProd();
-        }
-    );
+        $("#refillInv").click(function () {
+                hideProd();
+            }
+        );
 
     }
 );
@@ -223,7 +251,7 @@ function makeMenuCustomer(){ //making menu for guest and vip page
 function makeMenuItemManager(key){
     let item = getItem(key);
     return makeDiv("i"+ key, "menuitem1", [makeSpan("n"+key, "menuname", item.name), '<br>',
-  makeButton(key, "productInfo", "Product information")])
+        makeButton("pi"+key, "productInfo", "showProd("+key+")", "Product Information")]);
 }
 
 function makeMenuManager(){
@@ -377,6 +405,23 @@ function searchDrinks(name) {
     }
 }
 
+function searchDrinks2(name) {
+    if(name === ""){
+        $("#menu1").html(makeMenuManager());
+        return;
+    }
+    var item = getItembyName(name);
+    if(item == null){
+        var statement = "Nothing came up in our drink database with this name.";
+        $("#menu1").html(makeMenuManager());
+        alert(statement);
+    }
+    else{
+        var div1 = makeMenuItemManager(item.nr);
+        $("#menu1").html(div1);
+    }
+}
+
 function hideVIP() { //hides the login modal for the Manager user
     $("#vipModal").hide();
 }
@@ -392,21 +437,40 @@ function hideMan() { //hides the login modal for the Manager user
 function showMan() { //opens the login modal for the Manager user
     $("#manModal").show();
 }
-function showProd() {
-    $(".prodModal").show();
+
+
+
+//can't figure this out yet, need to think about it more. why is get item undefinded??
+function showProd(key) { 
+     var item = getItem(key);
+    // var type = item.name;
+   // $("#prodType1").html(item.name);
+   $("#prodInf").show();
 }
 
+
+
+
 function hideProd() {
-    $(".prodModal").hide();
+    $("#prodInf").hide();
 }
+
 function showPriceMgmt() {
-    $(".priceMgmt").show();
-    $(".prodModal").hide();
+    $("#manage-price").show();
+    $("#prodInf").hide();
+}
+
+function hidePriceMgmt() {
+    $("#manage-price").hide();
 }
 
 function showRemoveItem(){
-    $(".removeItem").show();
-    $(".prodModal").hide();
+    $("#remove-item").show();
+    $("#prodInf").hide();
+}
+
+function hideRemoveItem(){
+    $("#remove-item").hide();
 }
 
 function hideCheckOut() { //hides the checkout modal
