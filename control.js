@@ -444,7 +444,7 @@ function showMan() { //opens the login modal for the Manager user
 function showProd(key) { 
      var item = getItem(key);
     // var type = item.name;
-   // $("#prodType1").html(item.name);
+    // $("#prodType1").html(item.name);
    $("#prodInf").show();
 }
 
