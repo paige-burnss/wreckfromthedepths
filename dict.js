@@ -51,6 +51,7 @@ dict = {
         "loginVIP": "Login",
         "login1": "Login",
         "lg": "Logout of Guest",
+        "lgv": "Logout of Account",
         "order": "Order",
         "search": "Search",
         "checkout": "Check Out",
