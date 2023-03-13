@@ -1,22 +1,37 @@
+
+
+
 var numOrders = 0; //global variable for number of orders in the 'cart'
 var totalPrice = 0;
 var discount = 0;
 var changePrice = 0;
+
+
+
+
+
 
 $(document).ready(function () {
         updateView(); // insert all texts in the right place...
         numOrders = 0;
         $(".modal").hide(); // Hide all modal dialogues on loading the page.
 
-        $("#vip").click(function () { //clicking on the vip button opens the vip modal
+       /* $("#vip").click(function () { //clicking on the vip button opens the vip modal
                 showVIP();
             }
-        );
+        );*/
 
-        $("#man").click(function () { //clicking on the manager button opens the vip modal
+      /*   $("#vip").click(function () { //clicking on the vip button opens the vip modal
+            showLogin();
+        }
+          );*/
+
+
+
+   /* $("#man").click(function () { //clicking on the manager button opens the vip modal
                 showMan();
             }
-        );
+        );*/
 
         $("#checkOut").click(function () { //clicking on the checkout button opens the checkout modal
                 showCheckOut();
@@ -438,7 +453,9 @@ function showMan() { //opens the login modal for the Manager user
     $("#manModal").show();
 }
 
-
+function showLogin() { //opens the login modal for the Manager user
+    $("#loginModal").show();
+}
 
 //can't figure this out yet, need to think about it more. why is get item undefinded??
 function showProd(key) { 
@@ -524,3 +541,54 @@ function openVIP(){ //opens VIP.html page
 function openMan(){ //opens manager.html page
     location.href = './manager.html';
 }
+
+
+function printMsg(){
+    console.log("clicked")
+    $("#loginModal").hide();
+
+}
+
+function login() {
+
+    const userNameField = document.getElementById("username-field");
+    const loginButton = document.getElementById("login-form-submit");
+    const userPasswordField = document.getElementById("password-field");
+
+    loginButton.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const username = userNameField.value;
+        const password = userPasswordField.value;
+
+        //Check whether the user is found or not?
+        const userFound = DB.users.find((u) => u.username === username && u.password === password);
+
+        //If undefined then show error
+        if(userFound === undefined){
+            var errorMsg = document.getElementById("login-error-msg");
+            errorMsg.innerText = "Invalid username and/or password";
+            errorMsg.style.display = "block"
+        }
+        //If user found then login
+
+        if (userFound) {
+
+            // Redirect user based on their credentials
+
+            switch (userFound.credentials) {
+                case "0":
+                    console.log("Redirecting to manager.html");
+                    openMan();
+                    break;
+                case "3":
+                    console.log("Redirecting to vip.html");
+                    window.location.href = "vip.html";
+                    break;
+                default:
+                    alert("Unknown user credentials.");
+            }
+        }
+    })
+}
+
