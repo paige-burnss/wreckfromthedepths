@@ -5,7 +5,7 @@ var numOrders = 0; //global variable for number of orders in the 'cart'
 var totalPrice = 0;
 var discount = 0;
 var changePrice = 0;
-
+var userID = 0;
 
 
 
@@ -574,6 +574,7 @@ function login() {
 
         if (userFound) {
 
+            userID = DB.users.find((u)).user_id
             // Redirect user based on their credentials
 
             switch (userFound.credentials) {
@@ -592,3 +593,12 @@ function login() {
     })
 }
 
+function accBalance() {
+    var balance = 0;
+    for (var i = 0; i <= DB.account.length; i++){
+        if (DB.account.user_id == userID) {
+            balance = DB.account.creditSEK;
+        }
+    }
+
+}

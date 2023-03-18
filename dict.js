@@ -27,6 +27,7 @@ function switchLang() {
     } else {
         lang = "eng"
     }
+    updateView();
 }
 function updateView() {
 
@@ -90,9 +91,60 @@ dict = {
         "cancel1": "Cancel",
         "set-price": "Set New Price",
         "yes-button": "Yes",
-        "areyousure": "Are you sure that you want to remove this item?"
+        "areyousure": "Are you sure that you want to remove this item?",
+        "accountInf": "Account information"
     },
     "swe": {
         "lang": "SV",
+        "guest": "Gäst",
+        "vip": "VIP",
+        "man": "Manager",
+        "vipl": "VIP Login",
+        "manl": "Manager Login",
+        "loginVIP": "Login",
+        "login1": "Login",
+        "lg": "Logga ut från gäst",
+        "lgv": "Logga ut från ditt konto",
+        "order": "Order",
+        "search": "Sök",
+        "checkout": "Checka ut",
+        "tot": "Total",
+        "dis": "Rabatt",
+        "finaltot": "Slutgiltig pris",
+        "checkOut": "Checka ut",
+        "payNow": "Betala nu",
+        "oneBill": "En nota",
+        "splitBill": "Delad nota",
+        "checkOut1": "Checka ut",
+        "oneBill1": "En nota",
+        "tot1": "Total",
+        "dis1": "Rabatt",
+        "finaltot1": "Slutgiltigt pris",
+        "checkOut2": "Checka ut",
+        "splitBill1": "Delad nota",
+        "tot2": "Total",
+        "dis2": "Rabatt",
+        "finaltot2": "Slutgiltigt pris",
+        "payNow1": "Betala nu",
+        "ftpp": "Slutgiltigt pris per person",
+        "waiter": "En servitör kommer snart att komma och ta betalt",
+        "lgm": "Logga ut från Manager",
+        "accounting-button": "Revision",
+        "productinformation": "Produkt Information",
+        "prodType": "Produkt Typ",
+        "prodSupp": "Produkt Leverantör",
+        "prodPric": "Produkt Pris",
+        "amountLeft": "Inventarie",
+        "priceM": "Pris hantering",
+        "removeI": "Ta bort produkt",
+        "current-pr": "Nuvarande pris",
+        "new-price": "Nytt pris",
+        "cancel": "Avbryt",
+        "cancel1": "Avbryt",
+        "set-price": "Sätt nytt pris",
+        "yes-button": "Ja",
+        "areyousure": "Är du säker på att du vill ta bort den här produkten?",
+        "accountInf": "Konto information"
+
     }
 };
