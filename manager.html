@@ -40,11 +40,9 @@
         </div>
     </div>
 
-
-
     <div class="row">
         <div class="col3">
-            <input id="searchbar1" onkeyup="searchDrink()" type="text" name="search" placeholder="Search" class="search" onchange="searchDrinks2(this.value)">
+            <input id="searchbar1" type="text" name="search" placeholder="Search" class="search" onchange="searchDrinks2(this.value)">
             <div id="menu1" class="scroll"> </div>
         </div>
 
@@ -76,7 +74,7 @@
 
             <div class="buttons1">
                 <button  id="removeItem1">Remove from Menu</button>
-                <button  id="manageP">Manage Prince</button>
+                <button  id="manageP">Manage Price</button>
                 <button  id="refillInv">Refill Inventory</button>
             </div>
 
@@ -91,16 +89,18 @@
 
         <div class="total1">
             <div class="col6">
+                <span id="prodType3" class="translate"></span> <br>
                 <span id="current-pr" class="translate"></span> <br>
             </div>
             <div class="col7">
+                <span id="prodType2"></span><br>
                 <span id="current-pr1"></span> <br>
             </div>
 
             <div class="input-group mb-3 inputt">
                 <span id="new-price" class="translate"></span>
                 <input id="newPrice" type="text" class="form-control freeResponse2" placeholder="Price" aria-label="Username"
-                       aria-describedby="basic-addon1" onchange="">
+                       aria-describedby="basic-addon1" onchange="changePrice(this.value)">
             </div>
         </div>
 
@@ -108,7 +108,7 @@
 
         <div class="priceButtons">
             <button class="cancel-button translate" id="cancel"></button>
-            <button id="set-price" class="translate" onclick=""></button>
+            <button id="set-price" class="translate" onclick="hidePriceMgmt()"></button>
         </div>
 
     </div>
@@ -125,7 +125,7 @@
 
         <div class="priceButtons">
             <button class="cancel-button translate" id="cancel1"></button>
-            <button id="yes-button" class="translate"></button>
+            <button id="yes-button" class="translate" onclick="removeItem()"></button>
         </div>
 
     </div>
