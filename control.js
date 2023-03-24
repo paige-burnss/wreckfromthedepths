@@ -378,6 +378,51 @@ function splitCheck(num){
 }
 
 function payTasks(){
+    let tempOrderList = $("#orders").html();
+    let total = $("#orders").html();
+    let count = 0; //created so that the first <br> tag won't be detected, but the second one will
+    let count2 = 0;
+    let userID = 0;
+    let beerID = 0;
+    if(location.href.split("/").slice(-1) == 'guest.html'){
+        userID = 0;
+    }
+    if(location.href.split("/").slice(-1) == 'vip.html'){
+        userID = localStorage.get("userid");
+    }
+    var currentdate = new Date(); 
+    var datetime = "Last Sync: " + currentdate.getDate() + "-"
+                + (currentdate.getMonth()+1)  + "-" 
+                + currentdate.getFullYear() + " "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+
+    tempPosition = 0;
+    for(var i = 0; i < total.length; i++){ 
+        if(total.substring(i,i+4) === '<br>' && count === 1){ //the end of the <div> for the drink order is found
+            for(var i=0; i <total.length;i++){
+                if(total.substring(i,i+1) === '"' && count2 === 0){
+                    beerID = total.substring(tempPosition, i);
+                    break;
+                }
+                else if(total.substring(i,i+1) === '"'){
+                    tempPostion = i+3;
+                    count2++;
+                }
+            }
+            DB.sold.push({"transaction_id": orderNum,"user_id": userID,"beer_id": beerID,"timestamp": datetime})
+            total = total.substring(i+4); //creates another substring with all the html after the <div> with the drink order to remove
+            count = 0;
+            count2 = 0;
+        }
+        else if(total.substring(i,i+4) === '<br>'){ //checks for the first <br> tag within the drink div (don't want to cut the string here because then the html wouldn't work)
+            count++;
+        }
+    }
+
+
+
     totalPrice = 0;
     numOrders = 0;
     $("#totalprice").html(totalPrice);
