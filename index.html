@@ -48,14 +48,13 @@
 
 <div id="loginModal" class="modal">
     <div class="modal-content">
-        <div id="login-error-msg-holder">
-             <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
-        </div>
-
+        <span class="close1">&times;</span>
+        <p class="logintitle translate" id="l"></p>
+        <div id="login-error-msg-holder"></div><br>
         <form id="login-form">
-            <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
-            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
-            <input id="login-form-submit" type="button" value="Login" onclick="login()">
+            <input type="text" name="username" id="username-field" class="login-form-field freeResponse" placeholder="Username"> <br><br>
+            <input type="password" name="password" id="password-field" class="login-form-field freeResponse" placeholder="Password"><br><br>
+            <input id="login-form-submit" type="button" value="Login" class="loginbutton" onclick="login()">
         </form>
     </div>
 </div>

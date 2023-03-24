@@ -47,7 +47,7 @@ dict = {
         "guest": "Guest",
         "vip": "VIP",
         "man": "Manager",
-        "vipl": "VIP Login",
+        "l": "Login",
         "manl": "Manager Login",
         "loginVIP": "Login",
         "login1": "Login",
@@ -79,8 +79,9 @@ dict = {
         "lgm": "Logout of Manager",
         "accounting-button": "Accounting",
         "productinformation": "Product Information",
-        "prodType": "Product Type",
-        "prodSupp": "Product Supplier",
+        "prodType": "Product Name",
+        "prodType3": "Product Name",
+        "prodSupp": "Product Producer",
         "prodPric": "Product Price",
         "amountLeft": "Amount Left",
         "priceM": "Price Management",
@@ -93,6 +94,7 @@ dict = {
         "yes-button": "Yes",
         "areyousure": "Are you sure that you want to remove this item?",
         "accountInf": "Account information",
+<<<<<<< HEAD
         "accountInfTitle": "Account information",
         "accountBalance": "Account balance:",
         "payWithBalance": "Pay with account Balance",
@@ -100,13 +102,17 @@ dict = {
         "codeTitle": "Unlock fridge",
         "generateCode": "Would you like to get a drink from the fridge?",
         "generateCodeTitle": "Your single use code"
+=======
+        "lgb": "Logout of Bartender",
+        "callsec": "Calling security now"
+>>>>>>> d58baaca386951d17f690054340310343cc710d9
     },
     "swe": {
         "lang": "SV",
         "guest": "Gäst",
         "vip": "VIP",
         "man": "Manager",
-        "vipl": "VIP Login",
+        "l": "Login",
         "manl": "Manager Login",
         "loginVIP": "Login",
         "login1": "Login",
