@@ -94,8 +94,18 @@ dict = {
         "yes-button": "Yes",
         "areyousure": "Are you sure that you want to remove this item?",
         "accountInf": "Account information",
+<<<<<<< HEAD
+        "accountInfTitle": "Account information",
+        "accountBalance": "Account balance:",
+        "payWithBalance": "Pay with account Balance",
+        "successfull": "Payment successfull",
+        "codeTitle": "Unlock fridge",
+        "generateCode": "Would you like to get a drink from the fridge?",
+        "generateCodeTitle": "Your single use code"
+=======
         "lgb": "Logout of Bartender",
         "callsec": "Calling security now"
+>>>>>>> d58baaca386951d17f690054340310343cc710d9
     },
     "swe": {
         "lang": "SV",
@@ -147,7 +157,13 @@ dict = {
         "set-price": "Sätt nytt pris",
         "yes-button": "Ja",
         "areyousure": "Är du säker på att du vill ta bort den här produkten?",
-        "accountInf": "Konto information"
+        "accountInf": "Konto information",
+        "accountInfTitle": "Konto information",
+        "accountBalance": "Saldo:",
+        "payWithBalance": "Betala med konto saldo",
+        "successfull": "Tack för din betalning",
+        "codeTitle": "Kylen",
+        "generateCode": "Vill du låsa upp kylen?"
 
     }
 };

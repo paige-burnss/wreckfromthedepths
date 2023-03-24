@@ -51,6 +51,18 @@ body {
     float: right;
 }
 
+.fridgeCode{
+    width: 80px; /* Fixed width for box so the width doesn't change */
+    border: 3px solid #083D77;
+    background-color: transparent;
+    color:black;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    float: right;
+}
+
 .langbutton:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); /* Adds drop shadow when mouse hovers over button */
 }
@@ -424,8 +436,21 @@ body {
     text-align: center;
     display: inline-block;
     font-size: 18px;
-    width: 53%;
+    width: 40%;
     font-family: 'Kumbh Sans', sans-serif;
+}
+.payWithBalance{
+    background-color: #339989;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 8px 15px 11px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    width: 40%;
+    font-family: 'Kumbh Sans', sans-serif;
+    display: inline-block;
 }
 
 .freeResponse1{
@@ -528,6 +553,8 @@ body {
     font-size: 17px;
 }
 
+<<<<<<< HEAD
+=======
 #accountInfoModal{
     background-color: #339989;
     width: 49.5%;
@@ -538,6 +565,7 @@ body {
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 17px;
 }
+>>>>>>> d58baaca386951d17f690054340310343cc710d9
 
 .priceButtons{
     width:80%;
