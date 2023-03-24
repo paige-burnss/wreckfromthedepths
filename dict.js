@@ -92,7 +92,14 @@ dict = {
         "set-price": "Set New Price",
         "yes-button": "Yes",
         "areyousure": "Are you sure that you want to remove this item?",
-        "accountInf": "Account information"
+        "accountInf": "Account information",
+        "accountInfTitle": "Account information",
+        "accountBalance": "Account balance:",
+        "payWithBalance": "Pay with account Balance",
+        "successfull": "Payment successfull",
+        "codeTitle": "Unlock fridge",
+        "generateCode": "Would you like to get a drink from the fridge?",
+        "generateCodeTitle": "Your single use code"
     },
     "swe": {
         "lang": "SV",
@@ -144,7 +151,13 @@ dict = {
         "set-price": "Sätt nytt pris",
         "yes-button": "Ja",
         "areyousure": "Är du säker på att du vill ta bort den här produkten?",
-        "accountInf": "Konto information"
+        "accountInf": "Konto information",
+        "accountInfTitle": "Konto information",
+        "accountBalance": "Saldo:",
+        "payWithBalance": "Betala med konto saldo",
+        "successfull": "Tack för din betalning",
+        "codeTitle": "Kylen",
+        "generateCode": "Vill du låsa upp kylen?"
 
     }
 };

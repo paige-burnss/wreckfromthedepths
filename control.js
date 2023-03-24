@@ -32,6 +32,16 @@ $(document).ready(function () {
                 showMan();
             }
         );*/
+        $("#generateCode1").click(function () { //clicking on the checkout button opens the checkout modal
+            generateCode();
+           }
+          );
+
+
+         $("#accInf").click(function () { //clicking on the checkout button opens the checkout modal
+            showAccountInfo();
+             }
+          );
 
         $("#checkOut").click(function () { //clicking on the checkout button opens the checkout modal
                 showCheckOut();
@@ -61,6 +71,11 @@ $(document).ready(function () {
 
         $("#payNow1").click(function () { //clicking on the pay now button opens the pay now modal
                 showPayNow();
+            }
+        );
+
+        $("#payWithBalance").click(function () { //clicking on the pay now button opens the pay now modal
+                showPaySuccess();
             }
         );
 
@@ -119,6 +134,14 @@ $(document).ready(function () {
             }
         );
 
+        $(".close10").click(function () { //clicking on the "x" button in the manager modal closes it
+                hidePaySuccess();
+            }
+        );
+         $(".close11").click(function () { //clicking on the "x" button in the manager modal closes it
+            hideCodeModal();
+        }
+         );
         $("#cancel").click(function () { //clicking on the cancel button in the price mgmt modal closes it and goes back to the prod info modal
                 hidePriceMgmt();
                 showProd();
@@ -170,6 +193,11 @@ $(document).ready(function () {
                 hideProd();
             }
         );
+
+        $("#fridgeCode").click(function () {
+            showCodeModal();
+        }
+    );
 
     }
 );
@@ -466,7 +494,9 @@ function showProd(key) {
 }
 
 
-
+//function showAccountInfo(){
+    //$("#accountInfoModal").show();
+//}
 
 function hideProd() {
     $("#prodInf").hide();
@@ -507,6 +537,10 @@ function showOneBill() { //opens the one bill modal while hiding the checkout mo
     $("#checkOutModal").hide();
 }
 
+function showCodeModal(){
+    $("#codeModal").show();
+}
+
 function hideSplitBill() { //hides the split bill modal
     $("#splitBillModal").hide();
 }
@@ -520,12 +554,28 @@ function hidePayNow() { //hides the one bill modal
     $("#payNowModal").hide();
 }
 
+function showPaySuccess(){
+    $("#oneBillModal").hide();
+    $("#splitBillModal").hide();
+    $("#payNowModal2").show();
+}
+
+function hidePaySuccess(){
+    $("#payNowModal2").hide();
+}
 function showPayNow() { //opens the one bill modal while hiding the checkout modal
     $("#oneBillModal").hide();
     $("#splitBillModal").hide();
     $("#payNowModal").show();
 }
 
+function hideCodeModal(){
+    $("#codeModal").hide();
+}
+
+function showGenerateCodeModal(){
+    $("#generateCodeModal").show();
+}
 function openIndex(){ //opens index.html page
     location.href = './index.html';
 }
@@ -574,7 +624,7 @@ function login() {
 
         if (userFound) {
 
-            userID = DB.users.find((u)).user_id
+            localStorage.setItem("user_id", userFound.user_id);
             // Redirect user based on their credentials
 
             switch (userFound.credentials) {
@@ -594,11 +644,87 @@ function login() {
 }
 
 function accBalance() {
-    var balance = 0;
-    for (var i = 0; i <= DB.account.length; i++){
-        if (DB.account.user_id == userID) {
-            balance = DB.account.creditSEK;
+    var userID = localStorage.getItem("user_id");
+    for (var i = 0; i < DB.account.length; i++) {
+        if (DB.account[i].user_id == userID) {
+            return DB.account[i].creditSEK;
+        }
+    }
+}
+
+function showAccountInfo() {
+    var accountBalanceElement = document.getElementById("accountBalance");
+    accountBalanceElement.textContent = "Account balance: " + accBalance();
+
+    var accountInfoModal = document.getElementById("accountInfoModal");
+    accountInfoModal.style.display = "block";
+
+    var close9Element = document.getElementsByClassName("close9")[0];
+    close9Element.addEventListener("click", function() {
+        accountInfoModal.style.display = "none";
+    });
+}
+
+var accInf = document.getElementById("accInf");
+accInf.addEventListener("click", showAccountInfo);
+
+function payWithBalance() {
+    var userID = localStorage.getItem("user_id");
+    var balance = accBalance();
+    for (var i = 0; i < DB.account.length; i++) {
+        console.log("hi")
+        if (DB.account[i].user_id == userID) {
+            balance = DB.account[i].creditSEK;
         }
     }
 
+    if (totalPrice > balance) {
+        console.log("Insufficient funds");
+    } else {
+        for (var i = 0; i < DB.account.length; i++) {
+            if (DB.account[i].user_id == userID) {
+                DB.account[i].creditSEK -= totalPrice;
+                updateDB(DB);
+                console.log("Payment successful");
+                break;
+            }
+        }
+    }
+    totalPrice = 0;
+    numOrders = 0;
+    $("#totalprice").html(totalPrice);
+    $("#finalprice").html(totalPrice-(totalPrice*discount));
+    var empty = "";
+    $("#orders").html(empty);
+}
+
+function updateDB() {
+    console.log("Hiya")
+    // Convert the DBloaded object to a JSON string
+    var jsonDB = JSON.stringify(DB);
+
+    // Save the JSON string to localStorage
+    localStorage.setItem("DBloaded", jsonDB);
+}
+
+function generateCode(){
+    console.log("hej");
+    hideCodeModal();
+    let code = "";
+    for (let i = 0; i < 4; i++) {
+        code += Math.floor(Math.random() * 10);
+    }
+    localStorage.setItem("code", code);
+    $("#codeContent").html(code);
+    console.log("hallå");
+}
+
+function showCode(){
+    console.log("Hit")
+    var codeDisplay = document.getElementById("codeDisplay");
+
+    const code = generateCode();
+
+    codeDisplay.textContent = code;
+    console.log("Och hit")
 }
