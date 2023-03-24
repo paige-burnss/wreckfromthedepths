@@ -4,80 +4,56 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>WFD Login</title>
-  <script type="text/javascript" src="dict.js"></script>
-  <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <title>WFD Bartender</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;300;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="photos/LogoWOName.jpg" type="image/x-icon">
+    <script type="text/javascript" src="dict.js"></script>
 
-  <script type="text/javascript" src="Beverages.js"></script>
-  <script type="text/javascript" src="DBLoaded.js"></script>
-  <script type="text/javascript" src="loader.js"></script>
-  <script type="text/javascript" src="control.js"></script>
+    <script type="text/javascript" src="jquery-3.6.3.min.js"></script> <!-- This library needs to be in your folder -->
 
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="Beverages_eng.js"></script>
+
+    <script type="text/javascript" src="control.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 <body>
-
-<div class="row">
-  <div class="col float-left">
-    <img class="smalllogo" src="photos/LogoWOName.jpg" alt="WreckFromDepths Logo"> <br><br>
+    <div class="nav">
+      <div class="sl">
+          <img class="smalllogo" src="photos/LogoWOName.jpg" alt="WreckFromDepths Logo">
+      </div>
+      <div class="otherButtons">
+          <button class="callSecurity translate" id="callsecurity">
+            <img src="photos/telephone-call.png" alt="Telephone Logo" id="telephone-logo">
+          </button>
+          <button class="logoutbutton translate" id="lgb" onclick="openIndex()"></button>
+          <div class="langbutton translate" id="langbtn" onclick="switchLang()">
+              <img id="langIcon" class="world image" src="photos/worldIcon.png">
+              <span id="lang" class="translate"></span>  <!-- bilden saknas -->
+          </div>
+      </div>
   </div>
-  <div class="col text-right">
-    <a href="index.html">
-      <button class="callSecurity" id ="call-security"><img src="photos/telephone-call.png" alt="Telephone Logo" id="telephone-logo" ></button>
 
-      <button class="logoutbutton translate" id="lg"> Logout of Bartender</button>
-    </a>
-    <button class="langbutton translate" id="lang">
-      <img class="world" src="photos/worldIcon.png"> EN
-    </button>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-8">
-    <div class="dropdown">
-      <button class="filter btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        Filter
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#" id="pop">Popular</a></li>
-        <li><a class="dropdown-item" href="#" id="beer">Beer</a></li>
-        <li><a class="dropdown-item" href="#" id="wine">Wine</a></li>
-        <li><a class="dropdown-item" href="#" id="spir">Spirits</a></li>
-        <li><a class="dropdown-item" href="#" id="snack">Snacks</a></li>
-      </ul>
-    </div>
-    <br>
-    <div class="itemsBox">
-      <p>HELLO</p>
-    </div>
-  </div>
-  <div class="col order">
 
-  </div>
-</div>
-<div id="security-modal" class="secModal">
-  <div id="security-modal-content" class="secModalCon">
-    <span class="close">&times;</span>
-    <p class="boxTitle" id="remove">Calling security...</p>
-
-    <div class="cancel-security" style="width: 100%"  >
-      <button style="width: 40%" id="cancel-button2">Cancel</button>
+  <div id="security-modal" class="modal">
+    
+    <div class="modal-content">
+      
+      <span class="close15">&times;</span>
+      <p class="announcement translate" id="callsec"></p>
 
     </div>
 
   </div>
 
-</div>
 </body>
 
 </html>

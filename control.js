@@ -1,13 +1,8 @@
-
-
-
 var numOrders = 0; //global variable for number of orders in the 'cart'
 var totalPrice = 0;
 var discount = 0;
-var changePrice = 0;
 var userID = 0;
-
-
+var orderNum = 1;
 
 
 
@@ -15,23 +10,6 @@ $(document).ready(function () {
         updateView(); // insert all texts in the right place...
         numOrders = 0;
         $(".modal").hide(); // Hide all modal dialogues on loading the page.
-
-       /* $("#vip").click(function () { //clicking on the vip button opens the vip modal
-                showVIP();
-            }
-        );*/
-
-      /*   $("#vip").click(function () { //clicking on the vip button opens the vip modal
-            showLogin();
-        }
-          );*/
-
-
-
-   /* $("#man").click(function () { //clicking on the manager button opens the vip modal
-                showMan();
-            }
-        );*/
 
         $("#checkOut").click(function () { //clicking on the checkout button opens the checkout modal
                 showCheckOut();
@@ -74,13 +52,13 @@ $(document).ready(function () {
             }
         );
 
-        $(".close").click(function () { //clicking on the "x" button in the vip modal closes it
-                hideVIP();
+        $("#callsecurity").click(function () { //clicking on the red security button opens the security modal
+                showSecurity();
             }
         );
         
-        $(".close1").click(function () { //clicking on the "x" button in the manager modal closes it
-                hideMan();
+        $(".close1").click(function () { //clicking on the "x" button in the login modal closes it
+                hideLogin();
             }
         );
         
@@ -116,6 +94,11 @@ $(document).ready(function () {
 
         $(".close8").click(function () { //clicking on the "x" button in the remove item modal closes it
                 hideRemoveItem();
+            }
+        );
+
+        $(".close15").click(function () { //clicking on the "x" button in the security modal closes it
+                hideSecurity();
             }
         );
 
@@ -252,7 +235,7 @@ function makeMenuItemCustomer(key){ //makes each individual drink card in the me
             makeSpan("p"+key, "menuprice", price), '<br>',
             makeSpan("pr"+key, "menuproducer", item.producer), '<br>',
             makeSpan("a"+key, "menualcpercentage", item.alcoholstrength), '<br>',
-            makeButton("o"+ key, "addorder", tempcall , "Add to Order")]);
+            makeButton("o", "addorder", tempcall , "Add to Order")]);
 }
 
 function makeMenuCustomer(){ //making menu for guest and vip page
@@ -266,7 +249,7 @@ function makeMenuCustomer(){ //making menu for guest and vip page
 function makeMenuItemManager(key){
     let item = getItem(key);
     return makeDiv("i"+ key, "menuitem1", [makeSpan("n"+key, "menuname", item.name), '<br>',
-        makeButton("pi"+key, "productInfo", "showProd("+key+")", "Product Information")]);
+        makeButton("pi"+key, "productInfo", "showProd('"+item.name+"')", "Product Information")]);
 }
 
 function makeMenuManager(){
@@ -437,36 +420,54 @@ function searchDrinks2(name) {
     }
 }
 
-function hideVIP() { //hides the login modal for the Manager user
-    $("#vipModal").hide();
-}
-
-function showVIP() { //opens the login modal for the VIP user
-    $("#vipModal").show();
-}
-
-function hideMan() { //hides the login modal for the Manager user
-    $("#manModal").hide();
-}
-
-function showMan() { //opens the login modal for the Manager user
-    $("#manModal").show();
-}
-
-function showLogin() { //opens the login modal for the Manager user
+function showLogin() { //opens the login modal 
     $("#loginModal").show();
 }
 
-//can't figure this out yet, need to think about it more. why is get item undefinded??
-function showProd(key) { 
-     var item = getItem(key);
-    // var type = item.name;
-    // $("#prodType1").html(item.name);
-   $("#prodInf").show();
+function hideLogin() { //hides the login modal 
+    $("#loginModal").hide();
 }
 
+//need to still show the amount that is left!!!
+function showProd(name) { 
+     var item = getItembyName(name);
+    $("#prodInf").show();
+    $("#prodType1").html(name);
+    $("#prodType2").html(name);
+    $("#prodSupp1").html(item.producer);
+    $("#prodPric1").html(item.priceinclvat);
+    $("#current-pr1").html(item.priceinclvat);
+}
 
+function changePrice(val){
+    var name = document.getElementById("prodType2").innerHTML;
+    var item = getItembyName(name);
+    item.priceinclvat = val;
+}
 
+function removeItem(){
+    var name = document.getElementById("prodType1").innerHTML;
+    var item = getItembyName(name);
+    var key = item.nr;
+    arrayWithoutItem = [];
+    for (let i = 0; i < DB2.length; i++) {
+        if (DB2[i].nr !== key) {
+            arrayWithoutItem.push(DB2[i]);
+        }
+    }
+    DB2 = arrayWithoutItem;
+    console.log(DB2[1].name);
+    $("#menu1").html(makeMenuManager());
+    hideRemoveItem();
+}
+
+function showSecurity() {
+    $("#security-modal").show();
+}
+
+function hideSecurity() {
+    $("#security-modal").hide();
+}
 
 function hideProd() {
     $("#prodInf").hide();
@@ -534,19 +535,16 @@ function openGuest(){ //opens guest.html page
     location.href = './guest.html';
 }
 
+function openBar(){ //opens bartender.html page
+    location.href = './bartender.html';
+}
+
 function openVIP(){ //opens VIP.html page
     location.href = './vip.html';
 }
 
 function openMan(){ //opens manager.html page
     location.href = './manager.html';
-}
-
-
-function printMsg(){
-    console.log("clicked")
-    $("#loginModal").hide();
-
 }
 
 function login() {
@@ -566,15 +564,14 @@ function login() {
 
         //If undefined then show error
         if(userFound === undefined){
-            var errorMsg = document.getElementById("login-error-msg");
+            var errorMsg = document.getElementById("login-error-msg-holder");
             errorMsg.innerText = "Invalid username and/or password";
-            errorMsg.style.display = "block"
         }
+
         //If user found then login
 
         if (userFound) {
-
-            userID = DB.users.find((u)).user_id
+            
             // Redirect user based on their credentials
 
             switch (userFound.credentials) {
@@ -582,9 +579,13 @@ function login() {
                     console.log("Redirecting to manager.html");
                     openMan();
                     break;
+                case "1":
+                    console.log("Redirecting to bartender.html");
+                    openBar();
+                    break;
                 case "3":
                     console.log("Redirecting to vip.html");
-                    window.location.href = "vip.html";
+                    openVIP();
                     break;
                 default:
                     alert("Unknown user credentials.");
