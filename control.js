@@ -2,8 +2,7 @@ var numOrders = 0; //global variable for number of orders in the 'cart'
 var totalPrice = 0;
 var discount = 0;
 var userID = 0;
-
-
+var orderNum = 1;
 
 
 
@@ -52,6 +51,11 @@ $(document).ready(function () {
                 showRemoveItem();
             }
         );
+
+        $("#callsecurity").click(function () { //clicking on the red security button opens the security modal
+                showSecurity();
+            }
+        );
         
         $(".close1").click(function () { //clicking on the "x" button in the login modal closes it
                 hideLogin();
@@ -90,6 +94,11 @@ $(document).ready(function () {
 
         $(".close8").click(function () { //clicking on the "x" button in the remove item modal closes it
                 hideRemoveItem();
+            }
+        );
+
+        $(".close15").click(function () { //clicking on the "x" button in the security modal closes it
+                hideSecurity();
             }
         );
 
@@ -452,6 +461,14 @@ function removeItem(){
     hideRemoveItem();
 }
 
+function showSecurity() {
+    $("#security-modal").show();
+}
+
+function hideSecurity() {
+    $("#security-modal").hide();
+}
+
 function hideProd() {
     $("#prodInf").hide();
 }
@@ -518,10 +535,12 @@ function openGuest(){ //opens guest.html page
     location.href = './guest.html';
 }
 
-function openVIP(id){ //opens VIP.html page
+function openBar(){ //opens bartender.html page
+    location.href = './bartender.html';
+}
+
+function openVIP(){ //opens VIP.html page
     location.href = './vip.html';
-    localStorage.setItem('id', id);
-    userID = id;
 }
 
 function openMan(){ //opens manager.html page
@@ -560,9 +579,13 @@ function login() {
                     console.log("Redirecting to manager.html");
                     openMan();
                     break;
+                case "1":
+                    console.log("Redirecting to bartender.html");
+                    openBar();
+                    break;
                 case "3":
                     console.log("Redirecting to vip.html");
-                    openVIP(userFound.user_id);
+                    openVIP();
                     break;
                 default:
                     alert("Unknown user credentials.");

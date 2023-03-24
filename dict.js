@@ -93,7 +93,9 @@ dict = {
         "set-price": "Set New Price",
         "yes-button": "Yes",
         "areyousure": "Are you sure that you want to remove this item?",
-        "accountInf": "Account information"
+        "accountInf": "Account information",
+        "lgb": "Logout of Bartender",
+        "callsec": "Calling security now"
     },
     "swe": {
         "lang": "SV",

@@ -38,6 +38,7 @@ body {
     font-size: 15px;
     float: right;
 }
+
 .accountInfo{
     width: 80px; /* Fixed width for box so the width doesn't change */
     border: 3px solid #083D77;
@@ -526,6 +527,7 @@ body {
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 17px;
 }
+
 #accountInfoModal{
     background-color: #339989;
     width: 49.5%;
@@ -563,45 +565,6 @@ body {
      border: none; 
      font-family: 'Kumbh Sans', sans-serif;
      font-size: 17px;                 
-}
-
-.callSecurity{
-    background-color: red;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 15px 11px 15px;
-    text-align: center;
-    display: inline-block;
-    font-size: 18px;
-    width: 15%;
-}
-
-#telephone-logo{
-  width: 30%;
-}
-
-.secModal{
-    /*display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */                       
-    z-index: 1; /* Sit on top */                               
-    padding-top: 100px; /* Location of the box */              
-    left: 0;                                                   
-    top: 0;                                                    
-    width: 100%; /* Full width */                              
-    height: 100%; /* Full height */                            
-    overflow: auto; /* Enable scroll if needed */              
-    background-color: rgb(0,0,0); /* Fallback color */         
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */  
-    text-align: center;                                        
-}
-
-.secModalCon {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    width: 40%;
-    text-align: center;
-    padding-bottom: 15%;
 }
 
 #searchbar1{
@@ -679,3 +642,32 @@ body {
     border-color: transparent;
     border-radius: 8px;
   }
+
+
+
+
+
+  /* Bartender Page CSS */
+  .callSecurity{
+    background-color: red;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px 13px 15px;
+    text-align: center;
+    display: inline-block;
+    float: right;
+    font-family: 'Kumbh Sans', sans-serif;
+    width: 80px; 
+}
+
+#telephone-logo{
+    width: 40%;
+  }
+
+.close15 { /* For 'x' to close modal boxes */
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right; /* Right aligned in modal */
+    float: right;
+}
