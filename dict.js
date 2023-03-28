@@ -105,6 +105,8 @@ dict = {
         "callsec": "Calling security now",
         "getPayment": "You just completed this order. Close this tab when payment is confirmed.",
         "orderOH": "This order is on the house. Close this tab once the customer has recieved the drink."
+        "fridgeCode": "Fridge",
+        "generateCode1": "Generate Code"
     },
     "swe": {
         "lang": "SV",
