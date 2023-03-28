@@ -94,18 +94,19 @@ dict = {
         "yes-button": "Yes",
         "areyousure": "Are you sure that you want to remove this item?",
         "accountInf": "Account information",
-<<<<<<< HEAD
+
         "accountInfTitle": "Account information",
         "accountBalance": "Account balance:",
         "payWithBalance": "Pay with account Balance",
         "successfull": "Payment successfull",
         "codeTitle": "Unlock fridge",
         "generateCode": "Would you like to get a drink from the fridge?",
-        "generateCodeTitle": "Your single use code"
-=======
+        "generateCodeTitle": "Your single use code",
         "lgb": "Logout of Bartender",
-        "callsec": "Calling security now"
->>>>>>> d58baaca386951d17f690054340310343cc710d9
+        "callsec": "Calling security now",
+        "fridgeCode": "Fridge",
+        "generateCode1": "Generate Code"
+
     },
     "swe": {
         "lang": "SV",

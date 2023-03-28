@@ -63,6 +63,19 @@ body {
     float: right;
 }
 
+.generateCode1{
+    background-color: #339989;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 8px 15px 11px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    width: 90%;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
 .langbutton:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); /* Adds drop shadow when mouse hovers over button */
 }
@@ -108,6 +121,7 @@ body {
     font-size: 20px;
     font-family: 'Kumbh Sans', sans-serif;
 }
+
 
 .loginbutton2:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); /* Adds drop shadow when mouse hovers over button */
@@ -315,7 +329,7 @@ body {
 }
 
 .scroll2{
-    margin:4px, 4px;
+    margin:4px;
     padding:4px;
     background-color: transparent;
     width: 98%;
@@ -477,7 +491,23 @@ body {
     font-size: 20px;
 }
 
+.close11 { /* For 'x' to close modal boxes */
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right; /* Right aligned in modal */
+    float: right;
+    cursor: pointer;
+}
 
+.close12 { /* For 'x' to close modal boxes */
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right; /* Right aligned in modal */
+    float: right;
+    cursor: pointer;
+}
 
 
 
@@ -553,19 +583,8 @@ body {
     font-size: 17px;
 }
 
-<<<<<<< HEAD
-=======
-#accountInfoModal{
-    background-color: #339989;
-    width: 49.5%;
-    height: 44px;
-    color: white;
-    border-radius: 8px;
-    border: none;
-    font-family: 'Kumbh Sans', sans-serif;
-    font-size: 17px;
-}
->>>>>>> d58baaca386951d17f690054340310343cc710d9
+
+
 
 .priceButtons{
     width:80%;
@@ -699,3 +718,4 @@ body {
     text-align: right; /* Right aligned in modal */
     float: right;
 }
+

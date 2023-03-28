@@ -11,7 +11,7 @@ $(document).ready(function () {
         numOrders = 0;
         $(".modal").hide(); // Hide all modal dialogues on loading the page.
 
-<<<<<<< HEAD
+
        /* $("#vip").click(function () { //clicking on the vip button opens the vip modal
                 showVIP();
             }
@@ -39,8 +39,7 @@ $(document).ready(function () {
              }
           );
 
-=======
->>>>>>> d58baaca386951d17f690054340310343cc710d9
+
         $("#checkOut").click(function () { //clicking on the checkout button opens the checkout modal
                 showCheckOut();
             }
@@ -132,7 +131,6 @@ $(document).ready(function () {
             }
         );
 
-<<<<<<< HEAD
         $(".close10").click(function () { //clicking on the "x" button in the manager modal closes it
                 hidePaySuccess();
             }
@@ -141,13 +139,17 @@ $(document).ready(function () {
             hideCodeModal();
         }
          );
-=======
+         $(".close12").click(function () { //clicking on the "x" button in the manager modal closes it
+            hideGenerateCodeModal();
+         }
+         );
+
         $(".close15").click(function () { //clicking on the "x" button in the security modal closes it
                 hideSecurity();
             }
         );
 
->>>>>>> d58baaca386951d17f690054340310343cc710d9
+
         $("#cancel").click(function () { //clicking on the cancel button in the price mgmt modal closes it and goes back to the prod info modal
                 hidePriceMgmt();
                 showProd();
@@ -490,11 +492,11 @@ function showProd(name) {
     $("#current-pr1").html(item.priceinclvat);
 }
 
-<<<<<<< HEAD
+
 //function showAccountInfo(){
     //$("#accountInfoModal").show();
 //}
-=======
+
 function changePrice(val){
     var name = document.getElementById("prodType2").innerHTML;
     var item = getItembyName(name);
@@ -524,7 +526,10 @@ function showSecurity() {
 function hideSecurity() {
     $("#security-modal").hide();
 }
->>>>>>> d58baaca386951d17f690054340310343cc710d9
+
+function hideGenerateCodeModal(){
+    $("#generateCodeModal").hide();
+}
 
 function hideProd() {
     $("#prodInf").hide();
@@ -624,6 +629,8 @@ function openMan(){ //opens manager.html page
     location.href = './manager.html';
 }
 
+
+// This function lets a user log in. This function is documented within the function itself.
 function login() {
 
     const userNameField = document.getElementById("username-field");
@@ -648,12 +655,11 @@ function login() {
         //If user found then login
 
         if (userFound) {
-<<<<<<< HEAD
+
 
             localStorage.setItem("user_id", userFound.user_id);
-=======
-            
->>>>>>> d58baaca386951d17f690054340310343cc710d9
+
+
             // Redirect user based on their credentials
 
             switch (userFound.credentials) {
@@ -676,6 +682,8 @@ function login() {
     })
 }
 
+//This function just collects the specific users account balance from the database. It does this by checking the
+//user id that is logged in, and then returning the specifc account balance for that user id.
 function accBalance() {
     var userID = localStorage.getItem("user_id");
     for (var i = 0; i < DB.account.length; i++) {
@@ -685,6 +693,8 @@ function accBalance() {
     }
 }
 
+//This function just opens the modal. For this modal we tried doing it this way to open it. For the other
+//modals we use jQuery as seen above.
 function showAccountInfo() {
     var accountBalanceElement = document.getElementById("accountBalance");
     accountBalanceElement.textContent = "Account balance: " + accBalance();
@@ -698,9 +708,13 @@ function showAccountInfo() {
     });
 }
 
-var accInf = document.getElementById("accInf");
-accInf.addEventListener("click", showAccountInfo);
 
+
+
+//This function pays the order with the logged in persons balance. This is done by taking the global variable
+//total price and checking it against the variable balance, which is set in the accBalance fucntion. If the balance is
+//larger than the total price, then the function works, which basically takes the balance - total price. Then the
+//database is updated.
 function payWithBalance() {
     var userID = localStorage.getItem("user_id");
     var balance = accBalance();
@@ -731,6 +745,7 @@ function payWithBalance() {
     $("#orders").html(empty);
 }
 
+//This fucntion updates the jsonFile
 function updateDB() {
     console.log("Hiya")
     // Convert the DBloaded object to a JSON string
@@ -740,6 +755,8 @@ function updateDB() {
     localStorage.setItem("DBloaded", jsonDB);
 }
 
+//This function generates a four digit code thats used for unlocking the fridge in the bar. It is done so
+//by hiding the other modals, and then through a for loop creating this code. We then save the code locally for future use.
 function generateCode(){
     console.log("hej");
     hideCodeModal();
@@ -752,12 +769,4 @@ function generateCode(){
     console.log("hallå");
 }
 
-function showCode(){
-    console.log("Hit")
-    var codeDisplay = document.getElementById("codeDisplay");
 
-    const code = generateCode();
-
-    codeDisplay.textContent = code;
-    console.log("Och hit")
-}
