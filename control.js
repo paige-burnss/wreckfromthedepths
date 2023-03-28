@@ -2,7 +2,7 @@ var numOrders = 0; //global variable for number of orders in the 'cart'
 var totalPrice = 0;
 var discount = 0;
 var userID = 0;
-var orderNum = 1;
+var orderNum = 1207;
 
 
 
@@ -11,23 +11,6 @@ $(document).ready(function () {
         numOrders = 0;
         $(".modal").hide(); // Hide all modal dialogues on loading the page.
 
-
-       /* $("#vip").click(function () { //clicking on the vip button opens the vip modal
-                showVIP();
-            }
-        );*/
-
-      /*   $("#vip").click(function () { //clicking on the vip button opens the vip modal
-            showLogin();
-        }
-          );*/
-
-
-
-   /* $("#man").click(function () { //clicking on the manager button opens the vip modal
-                showMan();
-            }
-        );*/
         $("#generateCode1").click(function () { //clicking on the checkout button opens the checkout modal
             generateCode();
            }
@@ -38,8 +21,7 @@ $(document).ready(function () {
             showAccountInfo();
              }
           );
-
-
+          
         $("#checkOut").click(function () { //clicking on the checkout button opens the checkout modal
                 showCheckOut();
             }
@@ -139,6 +121,7 @@ $(document).ready(function () {
             hideCodeModal();
         }
          );
+
          $(".close12").click(function () { //clicking on the "x" button in the manager modal closes it
             hideGenerateCodeModal();
          }
@@ -149,6 +132,15 @@ $(document).ready(function () {
             }
         );
 
+        $(".close17").click(function () { //clicking on the "x" button in the security modal closes it
+            hideOrderOnHouse();
+        }
+    );
+
+        $(".close16").click(function () { //clicking on the "x" button in the security modal closes it
+            hideCompleteOrder();
+        }
+    );
 
         $("#cancel").click(function () { //clicking on the cancel button in the price mgmt modal closes it and goes back to the prod info modal
                 hidePriceMgmt();
@@ -203,9 +195,13 @@ $(document).ready(function () {
         );
 
         $("#fridgeCode").click(function () {
-            showCodeModal();
-        }
-    );
+                showCodeModal();
+            }
+        );
+
+        $("#menu2").html( //on page load up, the menu is loaded for the customer
+            makeOrdersBartender()
+        );
 
     }
 );
@@ -311,6 +307,71 @@ function makeMenuManager(){
         tempmenu += makeMenuItemManager(DB2[i].nr);
     }
     return tempmenu;
+}
+
+function makeOrderItemBartender(item){
+    let id = item.transaction_id;
+    let userid = item.user_id;
+    let name = getItem(item.beer_id).name;
+    let time = item.timestamp;
+    let tempcall = "completeOrder("+id+")";
+    let tempcall2 = "orderOnHouse(" + id +")";
+    return makeDiv("i"+ id, "ordersitem", [makeSpan("i"+id, "orderID", "Order ID: " +id), '<br>',
+        makeSpan("ui"+id, "orderuserid", "User ID: " + userid), '<br>',
+        makeSpan("n"+id, "orderName", name), '<br>',
+        makeSpan("t"+id, "timeStamp", time), '<br>',
+        makeButton("eo", "editOrder", tempcall , "Order Complete"), "  ",
+        makeButton("oho", "onHouseOrder", tempcall2 , "Order on the House") , '<br>']);
+}
+
+function makeOrdersBartender(){
+    let tempOrders = "";
+    for(var i =0; i < DB.sold.length; i++){
+        tempOrders += makeOrderItemBartender(DB.sold[i]);
+    }
+    return tempOrders;
+}
+
+function orderOnHouse(id){
+    let tempmenu = $("#menu2").html();
+    let position = tempmenu.search("i" + id);
+    let start = tempmenu.slice(0,position-9);
+    let end = "";
+    let total = "";
+    let count = 0;
+    for(var i = position; i < tempmenu.length; i++){ 
+        if(tempmenu.substring(i,i+4) === '<br>' && count === 4){ 
+            end = tempmenu.substring(i+4);
+            total = start + end; 
+            break; //gets out of the loop
+        }
+        else if(tempmenu.substring(i,i+4) === '<br>'){ 
+            count++;
+        }
+    }
+    $("#menu2").html(total);
+    showOrderOnHouse();
+};
+
+function completeOrder(id){
+    let tempmenu = $("#menu2").html();
+    let position = tempmenu.search("i" + id);
+    let start = tempmenu.slice(0,position-9);
+    let end = "";
+    let total = "";
+    let count = 0;
+    for(var i = position; i < tempmenu.length; i++){ 
+        if(tempmenu.substring(i,i+4) === '<br>' && count === 4){ 
+            end = tempmenu.substring(i+4);
+            total = start + end; 
+            break; //gets out of the loop
+        }
+        else if(tempmenu.substring(i,i+4) === '<br>'){ 
+            count++;
+        }
+    }
+    $("#menu2").html(total);
+    showCompleteOrder();
 }
 
 function addOrder(key, name, price){ //adds the drink order to the orders column after pressing the "add to order" button
@@ -431,12 +492,61 @@ function splitCheck(num){
 }
 
 function payTasks(){
-    totalPrice = 0;
-    numOrders = 0;
-    $("#totalprice").html(totalPrice);
-    $("#finalprice").html(totalPrice-(totalPrice*discount));
-    var empty = "";
-    $("#orders").html(empty);
+        let tempOrderList = $("#orders").html();
+        addToBarList(tempOrderList);
+        totalPrice = 0;
+        numOrders = 0;
+        $("#totalprice").html(totalPrice);
+        $("#finalprice").html(totalPrice-(totalPrice*discount));
+        var empty = "";
+        $("#orders").html(empty);
+}
+
+function addToBarList(tempOrderList){
+    let total = $("#orders").html();
+    let count = 0; //created so that the first <br> tag won't be detected, but the second one will
+    let count2 = 0;
+    let userID = 0;
+    let beerID = 0;
+    if(location.href.split("/").slice(-1) == 'guest.html'){
+        userID = 0;
+    }
+    if(location.href.split("/").slice(-1) == 'vip.html'){
+        userID = localStorage.getItem("user_id");
+    }
+    var currentdate = new Date(); 
+    var datetime = currentdate.getFullYear() + "-"
+                + (currentdate.getMonth()+1)  + "-" 
+                + currentdate.getDate() + " "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+
+    tempPosition = 0;
+    for(var i = 0; i < total.length; i++){ 
+        if(total.substring(i,i+4) === '<br>' && count == 1){ //the end of the <div> for the drink order is found
+            for(var l=0; l <total.substring(i).length;l++){
+                if(total.substring(l,l+1) === '"' && count2 == 1){
+                    beerID = total.substring(11, l);
+                    break;
+                }
+                else if(total.substring(l,l+1) === '"' && count2 == 0){
+                    count2++;
+                }
+            }
+            //don't know how to add to DB
+            DB.sold.push({"transaction_id": orderNum,"user_id": userID,"beer_id": beerID,"timestamp": datetime});
+            updateDB(DB);
+            localStorage("DBloaded", DB);
+            //
+            count = 0;
+            count2 = 0;
+            orderNum++;
+        }
+        else if(total.substring(i,i+4) === '<br>'){ //checks for the first <br> tag within the drink div (don't want to cut the string here because then the html wouldn't work)
+            count++;
+        }
+    }
 }
 
 function searchDrinks(name) {
@@ -491,11 +601,6 @@ function showProd(name) {
     $("#prodPric1").html(item.priceinclvat);
     $("#current-pr1").html(item.priceinclvat);
 }
-
-
-//function showAccountInfo(){
-    //$("#accountInfoModal").show();
-//}
 
 function changePrice(val){
     var name = document.getElementById("prodType2").innerHTML;
@@ -558,7 +663,12 @@ function hideCheckOut() { //hides the checkout modal
 }
 
 function showCheckOut() { //opens the checkout modal
-    $("#checkOutModal").show();
+    if(numOrders >= 5){
+        $("#checkOutModal").show();
+    }
+    else{
+        alert("You need to have at least 5 items in your order to check out.")
+    }
 }
 
 function hideOneBill() { //hides the one bill modal
@@ -596,6 +706,7 @@ function showPaySuccess(){
 function hidePaySuccess(){
     $("#payNowModal2").hide();
 }
+
 function showPayNow() { //opens the one bill modal while hiding the checkout modal
     $("#oneBillModal").hide();
     $("#splitBillModal").hide();
@@ -609,6 +720,23 @@ function hideCodeModal(){
 function showGenerateCodeModal(){
     $("#generateCodeModal").show();
 }
+
+function showCompleteOrder(){
+    $("#completeModal").show();
+}
+
+function hideCompleteOrder(){
+    $("#completeModal").hide();
+}
+
+function showOrderOnHouse(){
+    $("#orderOnHouse").show();
+};
+
+function hideOrderOnHouse(){
+    $("#orderOnHouse").hide();
+};
+
 function openIndex(){ //opens index.html page
     location.href = './index.html';
 }
@@ -619,6 +747,7 @@ function openGuest(){ //opens guest.html page
 
 function openBar(){ //opens bartender.html page
     location.href = './bartender.html';
+    updateDB(localStorage.getItem("DBloaded"));
 }
 
 function openVIP(){ //opens VIP.html page
@@ -655,10 +784,7 @@ function login() {
         //If user found then login
 
         if (userFound) {
-
-
             localStorage.setItem("user_id", userFound.user_id);
-
 
             // Redirect user based on their credentials
 
@@ -708,9 +834,6 @@ function showAccountInfo() {
     });
 }
 
-
-
-
 //This function pays the order with the logged in persons balance. This is done by taking the global variable
 //total price and checking it against the variable balance, which is set in the accBalance fucntion. If the balance is
 //larger than the total price, then the function works, which basically takes the balance - total price. Then the
@@ -719,20 +842,18 @@ function payWithBalance() {
     var userID = localStorage.getItem("user_id");
     var balance = accBalance();
     for (var i = 0; i < DB.account.length; i++) {
-        console.log("hi")
         if (DB.account[i].user_id == userID) {
             balance = DB.account[i].creditSEK;
         }
     }
 
     if (totalPrice > balance) {
-        console.log("Insufficient funds");
+        alert("Insufficient funds, pay using another method.");
     } else {
         for (var i = 0; i < DB.account.length; i++) {
             if (DB.account[i].user_id == userID) {
                 DB.account[i].creditSEK -= totalPrice;
                 updateDB(DB);
-                console.log("Payment successful");
                 break;
             }
         }
@@ -747,7 +868,6 @@ function payWithBalance() {
 
 //This fucntion updates the jsonFile
 function updateDB() {
-    console.log("Hiya")
     // Convert the DBloaded object to a JSON string
     var jsonDB = JSON.stringify(DB);
 
@@ -758,7 +878,6 @@ function updateDB() {
 //This function generates a four digit code thats used for unlocking the fridge in the bar. It is done so
 //by hiding the other modals, and then through a for loop creating this code. We then save the code locally for future use.
 function generateCode(){
-    console.log("hej");
     hideCodeModal();
     let code = "";
     for (let i = 0; i < 4; i++) {
@@ -766,7 +885,14 @@ function generateCode(){
     }
     localStorage.setItem("code", code);
     $("#codeContent").html(code);
-    console.log("hallå");
 }
 
+function showCode(){
+    var codeDisplay = document.getElementById("codeDisplay");
 
+    const code = generateCode();
+
+    codeDisplay.textContent = code;
+
+    localStorage.setItem("secretCode", code);
+}

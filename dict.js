@@ -94,7 +94,6 @@ dict = {
         "yes-button": "Yes",
         "areyousure": "Are you sure that you want to remove this item?",
         "accountInf": "Account information",
-
         "accountInfTitle": "Account information",
         "accountBalance": "Account balance:",
         "payWithBalance": "Pay with account Balance",
@@ -104,9 +103,10 @@ dict = {
         "generateCodeTitle": "Your single use code",
         "lgb": "Logout of Bartender",
         "callsec": "Calling security now",
+        "getPayment": "You just completed this order. Close this tab when payment is confirmed.",
+        "orderOH": "This order is on the house. Close this tab once the customer has recieved the drink."
         "fridgeCode": "Fridge",
         "generateCode1": "Generate Code"
-
     },
     "swe": {
         "lang": "SV",
