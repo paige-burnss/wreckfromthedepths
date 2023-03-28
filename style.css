@@ -553,8 +553,6 @@ body {
     font-size: 17px;
 }
 
-<<<<<<< HEAD
-=======
 #accountInfoModal{
     background-color: #339989;
     width: 49.5%;
@@ -565,7 +563,6 @@ body {
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 17px;
 }
->>>>>>> d58baaca386951d17f690054340310343cc710d9
 
 .priceButtons{
     width:80%;
@@ -698,4 +695,99 @@ body {
     font-weight: bold;
     text-align: right; /* Right aligned in modal */
     float: right;
+}
+
+.close16 { /* For 'x' to close modal boxes */
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right; /* Right aligned in modal */
+    float: right;
+}
+
+.close17 { /* For 'x' to close modal boxes */
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right; /* Right aligned in modal */
+    float: right;
+}
+
+.scroll3{
+    margin:4px, 4px;
+    padding:4px;
+    border: 3px solid #083D77;
+    background-color: transparent;
+    width: 98%;
+    height: 475px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:left;
+    border-radius: 8px;
+}
+
+.ordersitem{
+    background-color: #C8CED4;
+    color:black;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    display: inline-block;
+    width: 46%; /* Dynamic width for changing screen size */
+    font-family: 'Kumbh Sans', sans-serif;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.24), 0 4px 5px 0 rgba(0,0,0,0.19);
+    margin: 1%;
+}
+
+.orderID{
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.orderuserid{
+    font-size: 10px;
+    font-style: italic;
+}
+
+.orderName{
+    font-size: 20px;
+}
+
+.timeStamp{
+    font-size: 10px;
+    font-style: italic;
+}
+
+.editOrder{
+    width: 45%; /* Dynamic width for changing screen size */
+    background-color: #083D77;
+    color:white;
+    border: none;
+    border-radius: 8px;
+    padding: 2px;
+    text-align: center;
+    font-size: 10px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.editOrder:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.onHouseOrder{
+    width: 45%; /* Dynamic width for changing screen size */
+    background-color: #339989;
+    color:white;
+    border: none;
+    border-radius: 8px;
+    padding: 2px;
+    text-align: center;
+    font-size: 10px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.onHouseOrder:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
