@@ -93,8 +93,8 @@ dict = {
         "set-price": "Set New Price",
         "yes-button": "Yes",
         "areyousure": "Are you sure that you want to remove this item?",
-        "accountInf": "Account information",
-        "accountInfTitle": "Account information",
+        "accInf": "Account Information",
+        "accountInfTitle": "Account Information",
         "accountBalance": "Account balance:",
         "payWithBalance": "Pay with account Balance",
         "successfull": "Payment successfull",
@@ -104,8 +104,8 @@ dict = {
         "lgb": "Logout of Bartender",
         "callsec": "Calling security now",
         "getPayment": "You just completed this order. Close this tab when payment is confirmed.",
-        "orderOH": "This order is on the house. Close this tab once the customer has recieved the drink."
-        "fridgeCode": "Fridge",
+        "orderOH": "This order is on the house. Close this tab once the customer has recieved the drink.",
+        "fridgeCode": "Fridge Code",
         "generateCode1": "Generate Code"
     },
     "swe": {

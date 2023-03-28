@@ -15,12 +15,6 @@ $(document).ready(function () {
             generateCode();
            }
           );
-
-
-         $("#accInf").click(function () { //clicking on the checkout button opens the checkout modal
-            showAccountInfo();
-             }
-          );
           
         $("#checkOut").click(function () { //clicking on the checkout button opens the checkout modal
                 showCheckOut();
@@ -141,6 +135,11 @@ $(document).ready(function () {
             hideCompleteOrder();
         }
     );
+
+        $(".close18").click(function () { //clicking on the "x" button in the security modal closes it
+                hideAccountInfo();
+            }
+        );
 
         $("#cancel").click(function () { //clicking on the cancel button in the price mgmt modal closes it and goes back to the prod info modal
                 hidePriceMgmt();
@@ -537,7 +536,7 @@ function addToBarList(tempOrderList){
             //don't know how to add to DB
             DB.sold.push({"transaction_id": orderNum,"user_id": userID,"beer_id": beerID,"timestamp": datetime});
             updateDB(DB);
-            localStorage("DBloaded", DB);
+            //localStorage("DBloaded", DB);
             //
             count = 0;
             count2 = 0;
@@ -737,6 +736,15 @@ function hideOrderOnHouse(){
     $("#orderOnHouse").hide();
 };
 
+function showAccountInfo() {
+    $("accountInfoModal").show();
+    //$("accountBalance").innerHTML("Account Balance: " + accBalance());
+}
+
+function hideAccountInfo() {
+    $("accountInfoModal").hide();
+}
+
 function openIndex(){ //opens index.html page
     location.href = './index.html';
 }
@@ -757,7 +765,6 @@ function openVIP(){ //opens VIP.html page
 function openMan(){ //opens manager.html page
     location.href = './manager.html';
 }
-
 
 // This function lets a user log in. This function is documented within the function itself.
 function login() {
@@ -817,21 +824,6 @@ function accBalance() {
             return DB.account[i].creditSEK;
         }
     }
-}
-
-//This function just opens the modal. For this modal we tried doing it this way to open it. For the other
-//modals we use jQuery as seen above.
-function showAccountInfo() {
-    var accountBalanceElement = document.getElementById("accountBalance");
-    accountBalanceElement.textContent = "Account balance: " + accBalance();
-
-    var accountInfoModal = document.getElementById("accountInfoModal");
-    accountInfoModal.style.display = "block";
-
-    var close9Element = document.getElementsByClassName("close9")[0];
-    close9Element.addEventListener("click", function() {
-        accountInfoModal.style.display = "none";
-    });
 }
 
 //This function pays the order with the logged in persons balance. This is done by taking the global variable
